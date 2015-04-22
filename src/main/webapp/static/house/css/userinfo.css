@@ -1,0 +1,48 @@
+body{background:#FFF;}
+.UserInfo {
+	padding: 40px 50px 30px;
+	margin-bottom: 80px;
+}
+.UserInfo dl {
+	height: 50px;
+}
+.UserInfo dt, .UserInfo dd {
+	float: left;
+}
+.UserInfo dt {
+	width: 240px;
+}
+.UserInfo i, .UserInfo span {
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+}
+.UserInfo label {
+	margin: 7px 0;
+}
+.UserInfo .left {
+	width: 84px;
+}
+.UserInfo .edit {
+	width: 30px;
+	background: #fff url(../images/bg.png) no-repeat -99px -503px;
+	border: 1px solid #eee;
+	border-radius: 2px;
+	cursor: pointer;
+}
+.UserInfo .edit:hover {
+	border-color: #ccc;
+}
+.UserInfo label {
+	width: 68px;
+}
+.UserInfo .Btn, .UserInfo .Sb {
+	width: 54px;
+}
+.UserInfo .Sb {
+	padding: 0;
+	margin-left: 12px;
+}
+.UserInfo input[type=text] {
+	width: 120px;
+}

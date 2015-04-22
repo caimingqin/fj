@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fj.modules.house.dao.SmallAreaDao">
+    
+	<sql id="smallAreaColumns">
+		a.id AS "id",
+		a.area_id AS "area.id",
+		a.name AS "name",
+		a.code AS "code",
+		a.geo AS "geo",
+		a.subway_id AS "subwayId",
+		a.fee AS "fee",
+		a.build_year AS "buildYear",
+		a.plot_ratio AS "plotRatio",
+		a.green_ratio AS "greenRatio",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.remarks AS "remarks",
+		a.sort AS "sort",
+		a.del_flag AS "delFlag",
+		a2.name AS "area.name"
+	</sql>
+	
+	<sql id="smallAreaJoins">
+		LEFT JOIN sys_area a2 ON a2.id = a.area_id
+	</sql>
+    
+	<select id="get" resultType="SmallArea">
+		SELECT 
+			<include refid="smallAreaColumns"/>
+		FROM shop_smallarea a
+		<include refid="smallAreaJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="SmallArea">
+		SELECT 
+			<include refid="smallAreaColumns"/>
+		FROM shop_smallarea a
+		<include refid="smallAreaJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+			<if test="area != null and area.id != null and area.id != ''">
+				AND a.area_id = #{area.id}
+			</if>
+			<if test="name != null and name != ''">
+				AND a.name LIKE 
+					<if test="dbName == 'oracle'">'%'||#{name}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{name}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{name},'%')</if>
+			</if>
+			<if test="fee != null and fee != ''">
+				AND a.fee = #{fee}
+			</if>
+			<if test="buildYear != null and buildYear != ''">
+				AND a.build_year = #{buildYear}
+			</if>
+			<if test="plotRatio != null and plotRatio != ''">
+				AND a.plot_ratio = #{plotRatio}
+			</if>
+			<if test="greenRatio != null and greenRatio != ''">
+				AND a.green_ratio = #{greenRatio}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="SmallArea">
+		SELECT 
+			<include refid="smallAreaColumns"/>
+		FROM shop_smallarea a
+		<include refid="smallAreaJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO shop_smallarea(
+			id,
+			area_id,
+			name,
+			code,
+			geo,
+			subway_id,
+			fee,
+			build_year,
+			plot_ratio,
+			green_ratio,
+			remarks,
+			sort
+		) VALUES (
+			#{id},
+			#{area.id},
+			#{name},
+			#{code},
+			#{geo},
+			#{subwayId},
+			#{fee},
+			#{buildYear},
+			#{plotRatio},
+			#{greenRatio},
+			#{remarks},
+			#{sort}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE shop_smallarea SET 	
+			area_id = #{area.id},
+			name = #{name},
+			code = #{code},
+			geo = #{geo},
+			subway_id = #{subwayId},
+			fee = #{fee},
+			build_year = #{buildYear},
+			plot_ratio = #{plotRatio},
+			green_ratio = #{greenRatio},
+			remarks = #{remarks},
+			sort = #{sort}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE shop_smallarea SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

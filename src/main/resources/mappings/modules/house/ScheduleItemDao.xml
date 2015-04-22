@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fj.modules.house.dao.ScheduleItemDao">
+    
+	<sql id="scheduleItemColumns">
+		a.id AS "id",
+		a.schedule_id AS "schedule.id",
+		a.house_id AS "house.id",
+		a.status AS "status",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.remarks AS "remarks",
+		a.del_flag AS "delFlag",
+		h.name AS "house.name",
+		s.name AS "schedule.name"
+	</sql>
+	
+	<sql id="scheduleItemJoins">
+		LEFT JOIN shop_house h ON h.id = a.house_id
+		LEFT JOIN shop_schedule s ON s.id = a.schedule_id
+	</sql>
+    
+	<select id="get" resultType="ScheduleItem">
+		SELECT 
+			<include refid="scheduleItemColumns"/>
+		FROM shop_scheduleitem a
+		<include refid="scheduleItemJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="ScheduleItem">
+		SELECT 
+			<include refid="scheduleItemColumns"/>
+		FROM shop_scheduleitem a
+		<include refid="scheduleItemJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+			<if test="id != null and id != ''">
+				AND a.id LIKE 
+					<if test="dbName == 'oracle'">'%'||#{id}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{id}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{id},'%')</if>
+			</if>
+			<if test="schedule != null and schedule.id != null and schedule.id != ''">
+				AND a.schedule_id LIKE 
+					<if test="dbName == 'oracle'">'%'||#{schedule.id}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{schedule.id}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{schedule.id},'%')</if>
+			</if>
+			<if test="house != null and house.id != null and house.id != ''">
+				AND a.house_id = #{house.id}
+			</if>
+			<if test="status != null and status != ''">
+				AND a.status = #{status}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="ScheduleItem">
+		SELECT 
+			<include refid="scheduleItemColumns"/>
+		FROM shop_scheduleitem a
+		<include refid="scheduleItemJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO shop_scheduleitem(
+			id,
+			schedule_id,
+			house_id,
+			status,
+			remarks,
+			del_flag
+		) VALUES (
+			#{id},
+			#{schedule.id},
+			#{house.id},
+			#{status},
+			#{remarks},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE shop_scheduleitem SET 	
+			id = #{id},
+			schedule_id = #{schedule.id},
+			house_id = #{house.id},
+			status = #{status},
+			remarks = #{remarks}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE shop_scheduleitem SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

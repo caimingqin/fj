@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fj.modules.house.dao.OrderDao">
+    
+	<sql id="orderColumns">
+		a.id AS "id",
+		a.roomer_name AS "roomerName",
+		a.roomer_phone AS "roomerPhone",
+		a.roomer_pid AS "roomerPid",
+		a.deposit AS "deposit",
+		a.income AS "income",
+		a.agent_id AS "agent.id",
+		a.house_id AS "house.id",
+		a.start_date AS "startDate",
+		a.end_date AS "endDate",
+		a.createby AS "createby",
+		a.createdate AS "createdate",
+		a.updateby AS "updateby",
+		a.updatedate AS "updatedate",
+		a.delflag AS "delflag",
+		a.type AS "type",
+		a.remarks AS "remarks",
+		u7.name AS "agent.name"
+	</sql>
+	
+	<sql id="orderJoins">
+		LEFT JOIN sys_user u7 ON u7.id = a.agent_id
+	</sql>
+    
+	<select id="get" resultType="Order">
+		SELECT 
+			<include refid="orderColumns"/>
+		FROM shop_order a
+		<include refid="orderJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="Order">
+		SELECT 
+			<include refid="orderColumns"/>
+		FROM shop_order a
+		<include refid="orderJoins"/>
+		<where>
+			
+			<if test="roomerName != null and roomerName != ''">
+				AND a.roomer_name LIKE 
+					<if test="dbName == 'oracle'">'%'||#{roomerName}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{roomerName}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{roomerName},'%')</if>
+			</if>
+			<if test="roomerPhone != null and roomerPhone != ''">
+				AND a.roomer_phone LIKE 
+					<if test="dbName == 'oracle'">'%'||#{roomerPhone}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{roomerPhone}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{roomerPhone},'%')</if>
+			</if>
+			<if test="agent != null and agent.id != null and agent.id != ''">
+				AND a.agent_id = #{agent.id}
+			</if>
+			<if test="house != null and house.id != null and house.id != ''">
+				AND a.house_id LIKE 
+					<if test="dbName == 'oracle'">'%'||#{house.id}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{house.id}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{house.id},'%')</if>
+			</if>
+			<if test="startDate != null and startDate != ''">
+				AND a.start_date &gt;= #{startDate}
+			</if>
+			<if test="endDate != null and endDate != ''">
+				AND a.end_date &lt;= #{endDate}
+			</if>
+			<if test="type != null and type != ''">
+				AND a.type = #{type}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="Order">
+		SELECT 
+			<include refid="orderColumns"/>
+		FROM shop_order a
+		<include refid="orderJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO shop_order(
+			id,
+			roomer_name,
+			roomer_phone,
+			roomer_pid,
+			deposit,
+			income,
+			agent_id,
+			house_id,
+			start_date,
+			end_date,
+			type,
+			remarks
+		) VALUES (
+			#{id},
+			#{roomerName},
+			#{roomerPhone},
+			#{roomerPid},
+			#{deposit},
+			#{income},
+			#{agent.id},
+			#{house.id},
+			#{startDate},
+			#{endDate},
+			#{type},
+			#{remarks}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE shop_order SET 	
+			roomer_name = #{roomerName},
+			roomer_phone = #{roomerPhone},
+			roomer_pid = #{roomerPid},
+			deposit = #{deposit},
+			income = #{income},
+			agent_id = #{agent.id},
+			house_id = #{house.id},
+			start_date = #{startDate},
+			end_date = #{endDate},
+			type = #{type},
+			remarks = #{remarks}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM shop_order
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

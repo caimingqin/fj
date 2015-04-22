@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fj.modules.house.dao.HouseDao">
+    
+	<sql id="houseColumns">
+		a.proprietor AS "proprietor.id",
+		a.smallarea_id AS "smallArea.id",
+		a.name AS "name",
+		a.rentprice AS "rentprice",
+		a.housetype AS "housetype",
+		a.floor AS "floor",
+		a.areanum AS "areanum",
+		a.area_id AS "area.id",
+		a.geo AS "geo",
+		a.indate AS "indate",
+		a.rentway AS "rentway",
+		a.cashtype AS "cashtype",
+		a.decoratetype AS "decoratetype",
+		a.status AS "status",
+		a.addr AS "addr",
+		a.description AS "description",
+		a.images AS "images",
+		a.remarks AS "remarks",
+		a.createby AS "createby",
+		a.createdate AS "createdate",
+		a.updateby AS "updateby",
+		a.updatedate AS "updatedate",
+		a.delflag AS "delflag",
+		a.id AS "id",
+		u1.name AS "proprietor.name",
+		s2.name AS "smallArea.name",
+		a8.name AS "area.name"
+	</sql>
+	
+	<sql id="houseJoins">
+		LEFT JOIN sys_user u1 ON u1.id = a.proprietor
+		LEFT JOIN shop_smallarea s2 ON s2.id = a.smallarea_id
+		LEFT JOIN sys_area a8 ON a8.id = a.area_id
+	</sql>
+    
+	<select id="get" resultType="House">
+		SELECT 
+			<include refid="houseColumns"/>
+		FROM shop_house a
+		<include refid="houseJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="House">
+		SELECT 
+			<include refid="houseColumns"/>
+		FROM shop_house a
+		<include refid="houseJoins"/>
+		<where>
+			
+			<if test="proprietor != null and proprietor.id != null and proprietor.id != ''">
+				AND a.proprietor = #{proprietor.id}
+			</if>
+			<if test="name != null and name != ''">
+				AND a.name LIKE 
+					<if test="dbName == 'oracle'">'%'||#{name}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{name}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{name},'%')</if>
+			</if>
+			<if test="rentprice != null and rentprice != ''">
+				AND a.rentprice LIKE 
+					<if test="dbName == 'oracle'">'%'||#{rentprice}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{rentprice}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{rentprice},'%')</if>
+			</if>
+			<if test="housetype != null and housetype != ''">
+				AND a.housetype = #{housetype}
+			</if>
+			<if test="floor != null and floor != ''">
+				AND a.floor LIKE 
+					<if test="dbName == 'oracle'">'%'||#{floor}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{floor}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{floor},'%')</if>
+			</if>
+			<if test="areanum != null and areanum != ''">
+				AND a.areanum LIKE 
+					<if test="dbName == 'oracle'">'%'||#{areanum}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{areanum}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{areanum},'%')</if>
+			</if>
+			<if test="area != null and area.id != null and area.id != ''">
+				AND a.area_id = #{area.id}
+			</if>
+			<if test="status != null and status != ''">
+				AND a.status = #{status}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="House">
+		SELECT 
+			<include refid="houseColumns"/>
+		FROM shop_house a
+		<include refid="houseJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO shop_house(
+			proprietor,
+			smallarea_id,
+			name,
+			rentprice,
+			housetype,
+			floor,
+			areanum,
+			area_id,
+			geo,
+			indate,
+			rentway,
+			cashtype,
+			decoratetype,
+			status,
+			addr,
+			description,
+			images,
+			remarks,
+			id
+		) VALUES (
+			#{proprietor.id},
+			#{smallArea.id},
+			#{name},
+			#{rentprice},
+			#{housetype},
+			#{floor},
+			#{areanum},
+			#{area.id},
+			#{geo},
+			#{indate},
+			#{rentway},
+			#{cashtype},
+			#{decoratetype},
+			#{status},
+			#{addr},
+			#{description},
+			#{images},
+			#{remarks},
+			#{id}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE shop_house SET 	
+			proprietor = #{proprietor.id},
+			smallarea_id = #{smallArea.id},
+			name = #{name},
+			rentprice = #{rentprice},
+			housetype = #{housetype},
+			floor = #{floor},
+			areanum = #{areanum},
+			area_id = #{area.id},
+			geo = #{geo},
+			indate = #{indate},
+			rentway = #{rentway},
+			cashtype = #{cashtype},
+			decoratetype = #{decoratetype},
+			status = #{status},
+			addr = #{addr},
+			description = #{description},
+			images = #{images},
+			remarks = #{remarks}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM shop_house
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

@@ -1,0 +1,98 @@
+.Down {
+	background: #eee url(../images/Down1.jpg)/*tpa=http://resource.iwjw.com/2.2/img/Down1.jpg*/ no-repeat center;
+	height: 500px;
+}
+.Down .code, .Down .iPhone, .Down .Android {
+	background:url(../images/bg2.png)/*tpa=http://resource.iwjw.com/2.2/img/bg2.png*/ no-repeat 0 -772px;
+	position: absolute;
+	text-indent: -999cm;
+	overflow: hidden;
+	top: 200px;
+	left: 150px;
+}
+.Down .code {
+	width: 142px;
+	height: 175px;
+	top: 232px;
+	left: 120px;
+}
+.Down .send {
+	background: url("../img/bg.png")/*tpa=http://resource.iwjw.com/2.2/img/bg.png*/ no-repeat -116px -1077px;
+	color: #e84a01;
+	position: absolute;
+	text-indent: 15px;
+	top: 372px;
+	left: 132px;
+	height: 26px;
+	line-height: 26px;
+	cursor: pointer;
+}
+.Down .iPhone, .Down .Android {
+	width: 206px;
+	height: 54px;
+	background-position: 0 -232px;
+	top: 304px;
+	left: 310px;
+}
+.Down .iPhone {
+	background-position: 0 -287px;
+	top: 232px;
+}
+.Down .Android:hover {
+	background-position: 0 -477px;
+}
+.Down .iPhone:hover {
+	background-position: 0 -421px;
+}
+#Send {
+	width: 420px;
+}
+#Send h3 {
+	font-size: 24px;
+	height: 72px;
+	line-height: 72px;
+	color: #fff;
+	text-align: center;
+	background: #e84a01;
+}
+#Send .Close {
+	background-position: -106px -179px;
+}
+#Send .Close:hover {
+	background-position: -73px -165px;
+}
+#Send ul {
+	padding: 14px 30px 20px;
+	list-style: none;
+}
+#Send li {
+	margin-top: 5px;
+}
+#Send li .Ib {
+	width: 60px;
+}
+#Send li input[type=tel], #Send li input[type=text] {
+	width: 168px;
+}
+#Send li button {
+	width: 108px;
+	margin-left: 10px;
+}
+#Send .Rr, #Send .sbt, #Send .hint {
+	margin: 0 0 0 60px;
+}
+#Send .Rr, #Send .hint {
+	height: 18px;
+	line-height: 14px;
+	margin-top: 6px;
+}
+#Send .hint {
+	color: #686e71;
+}
+#Send .sbt label {
+	color: #999;
+}
+#Send .sbt button {
+	margin: 6px 0 0;
+	width: 182px;
+}

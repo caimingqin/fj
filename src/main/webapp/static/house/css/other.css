@@ -1,0 +1,149 @@
+.Other {
+	margin: 30px auto;
+}
+.Other .Fl {
+	width: 175px;
+	height: 100%;
+	list-style: none;
+	font-size: 16px;
+}
+.Other .Fl li {
+	height: 36px;
+	line-height: 36px;
+	font-weight: bold;
+}
+.Other .Fl a {
+	padding-left: 18px;
+	display: block;
+}
+.Other .Fl a:hover {
+	color: #e84a01;
+	background: #f6f6f6;
+	text-decoration: none;
+}
+.Other .Fl li.act {
+	border-left: 4px solid #e84a01;
+}
+.Other .Fl li.act>a {
+	padding-left: 14px;
+}
+.Other .Fr {
+	width: 720px;
+	padding: 20px 30px;
+	background: #fff;
+	border: 1px solid #ddd;
+}
+.Other .Fr .Us {
+	padding-bottom: 50px;
+}
+.Other .Fr p {
+	text-indent: 2em;
+	margin: 0;
+}
+.Other .Fr ol {
+	list-style: decimal outside;
+	margin-left: 30px;
+}
+.Other .Fr li {
+	margin: 6px 0;
+}
+.Other .Fr li ul {
+	list-style: lower-roman outside;
+	margin-left: 24px;
+}
+.Other .Rl li {
+	list-style: none;
+	padding-left: 15px;
+	background:url(../images/bg.png)/*tpa=http://resource.iwjw.com/2.2/cache/css/bg/bg.png*/ no-repeat -117px -1060px;
+	height: 24px;
+	line-height: 24px;
+	overflow: hidden;
+}
+.Other .Rl li i {
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-indent: 5px;
+	text-overflow: ellipsis;
+}
+.Other .Rl li i.name {
+	width: 100px;
+}
+.Rl li i.time {
+	color: #999;
+}
+.mailto {
+	width: 232px;
+	font-size: 14px;
+	background: #f1f1f1;
+	color: #333;
+	border: 0;
+	border-radius: 4px;
+	display: inline-block;
+	position: relative;
+	height: 24px;
+	line-height: 24px;
+	left: 10px;
+	font-weight: normal;
+}
+.mailto i {
+	position: absolute;
+	display: block;
+	background:url(../images/bg.png)/*tpa=http://resource.iwjw.com/2.2/cache/css/bg/bg.png*/ no-repeat -117px -1162px;
+	width: 8px;
+	height: 8px;
+	margin: 0;
+	top: 8px;
+	left: -7px;
+}
+.mailto a {
+	color: #4064d8;
+}
+.mailto a:hover {
+	text-decoration: none;
+}
+.Fr h2 {
+	border-bottom: 1px solid #dcdcdc;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	height: auto;
+	line-height: 1;
+	font-weight: bold;
+}
+.Fr h2>i {
+	padding: 0 10px;
+	cursor: pointer;
+	border-left: 2px solid #e7e7e7;
+	color: #686e71;
+}
+.Fr h2>i:first-child {
+	border-left: 0;
+}
+.Fr h2>i.act {
+	color: #e84a01;
+}
+.Fr .protocol {
+	display: none;
+}
+.Fr .protocol.act {
+	display: block;
+}
+.Other .Fr .Ad {
+	border-top: 1px dashed #e1e1e1;
+	padding: 25px 0 30px;
+}
+.Other .Fr .Ad:first-child {
+	border-top: 0;
+	padding-top: 5px;
+}
+.Other .Fr .Ad h4 {
+	font-size: 18px;
+	line-height: 40px;
+	height: 40px;
+	font-weight: bold;
+}
+.Other .Fr .Ad p {
+	text-indent: 0;
+	font-size: 16px;
+	line-height: 30px;
+}

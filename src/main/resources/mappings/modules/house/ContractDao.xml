@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fj.modules.house.dao.ContractDao">
+    
+	<sql id="contractColumns">
+		a.id AS "id",
+		a.type AS "type",
+		a.deposit AS "deposit",
+		a.income AS "income",
+		a.agent_id AS "agent.id",
+		a.house_id AS "houseId",
+		a.start_date AS "startDate",
+		a.end_date AS "endDate",
+		a.remarks AS "remarks",
+		a.createby AS "createby",
+		a.createdate AS "createdate",
+		a.updateby AS "updateby",
+		a.updatedate AS "updatedate",
+		a.delflag AS "delflag",
+		a.roomer_name AS "roomerName",
+		a.roomer_phone AS "roomerPhone",
+		a.roomer_pid AS "roomerPid",
+		a.money AS "money",
+		a.sum AS "sum",
+		u5.name AS "agent.name"
+	</sql>
+	
+	<sql id="contractJoins">
+		LEFT JOIN sys_user u5 ON u5.id = a.agent_id
+	</sql>
+    
+	<select id="get" resultType="Contract">
+		SELECT 
+			<include refid="contractColumns"/>
+		FROM shop_contract a
+		<include refid="contractJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="Contract">
+		SELECT 
+			<include refid="contractColumns"/>
+		FROM shop_contract a
+		<include refid="contractJoins"/>
+		<where>
+			
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="agent != null and agent.id != null and agent.id != ''">
+				AND a.agent_id = #{agent.id}
+			</if>
+			<if test="houseId != null and houseId != ''">
+				AND a.house_id = #{houseId}
+			</if>
+			<if test="startDate != null and startDate != ''">
+				AND a.start_date = #{startDate}
+			</if>
+			<if test="endDate != null and endDate != ''">
+				AND a.end_date = #{endDate}
+			</if>
+			<if test="roomerName != null and roomerName != ''">
+				AND a.roomer_name = #{roomerName}
+			</if>
+			<if test="roomerPhone != null and roomerPhone != ''">
+				AND a.roomer_phone = #{roomerPhone}
+			</if>
+			<if test="money != null and money != ''">
+				AND a.money = #{money}
+			</if>
+			<if test="sum != null and sum != ''">
+				AND a.sum = #{sum}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="Contract">
+		SELECT 
+			<include refid="contractColumns"/>
+		FROM shop_contract a
+		<include refid="contractJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO shop_contract(
+			id,
+			type,
+			deposit,
+			income,
+			agent_id,
+			house_id,
+			start_date,
+			end_date,
+			remarks,
+			delflag,
+			roomer_name,
+			roomer_phone,
+			roomer_pid,
+			money,
+			sum
+		) VALUES (
+			#{id},
+			#{type},
+			#{deposit},
+			#{income},
+			#{agent.id},
+			#{houseId},
+			#{startDate},
+			#{endDate},
+			#{remarks},
+			#{delflag},
+			#{roomerName},
+			#{roomerPhone},
+			#{roomerPid},
+			#{money},
+			#{sum}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE shop_contract SET 	
+			type = #{type},
+			deposit = #{deposit},
+			income = #{income},
+			agent_id = #{agent.id},
+			house_id = #{houseId},
+			start_date = #{startDate},
+			end_date = #{endDate},
+			remarks = #{remarks},
+			delflag = #{delflag},
+			roomer_name = #{roomerName},
+			roomer_phone = #{roomerPhone},
+			roomer_pid = #{roomerPid},
+			money = #{money},
+			sum = #{sum}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM shop_contract
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

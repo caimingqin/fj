@@ -1,0 +1,721 @@
+table td {
+	position: relative;
+}
+table td .ll, table td .lls {
+	position: absolute;
+	border-left: 1px solid #e7e7e7;
+	right: 0;
+	width: 1px;
+	height: 20px;
+}
+table td .lls {
+	height: 14px;
+}
+.HouseTab {
+	border: 1px solid #eee;
+	color: #666;
+	background-color: #fff;
+}
+.HouseTab tr {
+	border-bottom: 1px solid #eee;
+}
+.HouseTab tr:last-child {
+	border: 0;
+}
+.HouseTab th, .HouseTab td {
+	padding: 15px 0;
+	text-align: center;
+}
+.HouseTab th.Tl {
+	padding-left: 20px;
+}
+.HouseTab td {
+	min-width: 85px;
+	white-space: nowrap;
+}
+.HouseTab .Tl {
+	text-align: left;
+}
+.HouseTab .Tl label {
+	width: 20px;
+}
+.HouseTab .Tr {
+	text-align: right;
+}
+.HouseTab td>p.Tr {
+	padding: 0 10px;
+}
+.HouseTab .Tr .Sb {
+	height: 35px;
+}
+.HouseTab th {
+	font-weight: normal;
+}
+.HouseTab td.imgtd {
+	width: 300px;
+	text-align: left;
+	padding-left: 20px;
+}
+.HouseTab tr>td:first-child {
+	cursor: pointer;
+	position: relative;
+}
+.HouseTab td.tdF {
+	width: 400px;
+}
+.HouseTab td.tdL {
+	width: 120px;
+	padding: 15px;
+}
+.HouseTab .Sb {
+	font-size: 12px;
+	height: 35px;
+	line-height: 35px;
+	padding: 0 12px;
+	margin-right: 15px;
+}
+.HouseTab .sbt td:first-child, .HouseTab .lea>td:first-child {
+	cursor: default;
+}
+.HouseTab td .Tc {
+	position: relative;
+	display: block;
+	float: left;
+}
+.HouseTab td.Tc {
+	padding: 15px 10px;
+	min-width: 20px;
+	max-width: 34px;
+}
+.HouseTab td>a.Pr {
+	display: block;
+}
+.HouseTab .tj {
+	position: absolute;
+	width: 40px;
+	height: 41px;
+	top: 1px;
+	left: 1px;
+	background:url(../images/tj.png)/*tpa=http://resource.iwjw.com/2.2/cache/img/tj.png*/ no-repeat;
+}
+.HouseTab .tj {
+	position: absolute;
+	width: 40px;
+	height: 41px;
+	top: 1px;
+	left: 1px;
+	background:url(../images/tj.png)/*tpa=http://resource.iwjw.com/2.2/cache/img/tj.png*/ no-repeat;
+}
+.HouseTab .tjTip {
+	position: relative;
+	width: 40px;
+	height: 20px;
+	font-size: 12px;
+	left: 4px;
+}
+.HouseTab .tjTip b {
+	position: absolute;
+	width: 5px;
+	height: 9px;
+	top: 1px;
+	left: -4px;
+	background:url(../images/bg.png)/*tpa=http://resource.iwjw.com/2.2/cache/css/bg/bg.png*/ -121px -1430px no-repeat;
+}
+.HouseTab .tjTip i {
+	width: 32px;
+	height: 18px;
+	background-color: #19ab8e;
+	border-radius: 3px;
+	padding: 2px 5px;
+	color: #fff;
+}
+.HouseTab i.dj {
+	width: 34px;
+	height: 35px;
+	background:url(../images/soleS2.png)/*tpa=http://resource.iwjw.com/2.2/cache/img/soleS2.png*/ no-repeat;
+}
+.HouseTab i.videoBtn {
+	width: 40px;
+	height: 40px;
+	margin: -20px 0 0 -20px;
+}
+.hPic>img {
+	width: 140px;
+	height: 85px;
+	display: block;
+}
+.HouseTab td {
+	vertical-align: top;
+	line-height: 18px;
+}
+.HouseTab td .inf {
+	position: relative;
+	margin: 0 0 0 10px;
+	height: 85px;
+	width: 240px;
+}
+.HouseTab td .inf h4 {
+	font-size: 14px;
+	line-height: 18px;
+	height: 22px;
+	overflow: hidden;
+}
+.HouseTab td .inf h4 b a i {
+	height: 14px;
+	overflow: hidden;
+}
+.HouseTab td .inf .Cb {
+	line-height: 20px;
+	color: #979593;
+	font-size: 12px;
+	width: 100%;
+}
+.HouseTab td .inf .Cb i.Gray {
+	margin-left: 10px;
+}
+.HouseTab td .inf .Cb .iconfont {
+	font-size: 18px;
+	margin-left: -3px;
+	top: -1px;
+}
+.HouseTab td .inf .Cb.Fe, .HouseTab td .inf .Cb.Few {
+	position: absolute;
+	bottom: 0;
+}
+.HouseTab td .inf .Cb.Few {
+	line-height: 16px;
+	height: 12px;
+}
+.HouseTab td i.housePrice {
+	color: #e84a01;
+}
+.HouseTab td p.upic {
+	font-size: 14px;
+	color: #686e71;
+}
+.HouseTab td p.collection, .HouseTab td p.delete {
+	cursor: pointer;
+	margin: 0 0 10px 30px;
+}
+.HouseTab td p.delete:hover .iconfont {
+	color: #9b9b9b;
+}
+.HouseTab td p.collection:hover .iconGray {
+	color: #e84a01;
+}
+.HouseTab td p.collection:hover .iconRed {
+	color: #d0d0d0;
+}
+.HouseTab .del {
+	opacity: .3;
+	filter: alpha(opacity=30);
+	position: relative;
+}
+.HouseTab .load {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 960px;
+	height: 100%;
+	background:url(../images/load.gif)/*tpa=http://resource.iwjw.com/2.2/cache/css/bg/load.gif*/ no-repeat center;
+}
+.HouseTab .lea, .HouseTab .lea:hover {
+	background: #fcfcfc;
+}
+.HouseTab .lea a:hover {
+	text-decoration: none;
+}
+.HouseTab .lea a:hover {
+	border-bottom: 1px solid #c1c1c1;
+}
+.HouseTab .lea .over {
+	background: #d0d0d0;
+	color: #686e71;
+	width: 32px;
+	height: 18px;
+	border-radius: 2px;
+	padding: 2px;
+	display: block;
+}
+.HouseTab .lea, .HouseTab .lea b, .HouseTab .lea, .HouseTab .lea a, .HouseTab .lea td .inf .Cb, .HouseTab .lea td .upic, .HouseTab .lea td i.housePrice {
+	color: #c1c1c1;
+}
+.HouseTab .lea td .inf .Fe .school, .HouseTab .lea td .inf .Cb .subway, .HouseTab .lea td .inf .Cb .gtFive, .HouseTab .lea td .inf .Cb .only {
+	padding: 1px 5px;
+	border-radius: 3px;
+	background: #ccc;
+	margin-right: 6px;
+	color: #fff;
+}
+#Hs {
+	position: relative;
+	height: 60px;
+	z-index: 999;
+}
+#HouseEnd {
+	height: 60px;
+	width: 100%;
+	background: #333;
+	filter: Alpha(opacity=80);
+	background: rgba(51,51,51,0.8);
+	position: absolute;
+	position: fixed;
+	top: auto;
+	bottom: 0;
+}
+#HouseFix, #HouseFix .Fr button {
+	height: 40px;
+	line-height: 40px;
+	font-size: 20px;
+}
+#HouseFix {
+	width: 948px;
+	margin: 0 auto;
+	color: #fff;
+	padding: 10px;
+	position: relative;
+}
+#HouseFix .Fr button {
+	width: 192px;
+	margin-left: 40px;
+}
+#HouseFix .Fl {
+	font-size: 20px;
+	cursor: pointer;
+}
+#HouseFix .Fl i {
+	font-size: 40px;
+	margin-right: 10px;
+}
+.orderHouseDiv {
+	background: #fff;
+}
+.orderHouse .Bs {
+	padding: 40px 0;
+	margin-bottom: 20px;
+	border: solid #e9e9e9;
+	border-width: 0 0 2px 0;
+}
+.orderHouse .Ib {
+	width: 80px;
+}
+.orderHouse dl {
+	height: 48px;
+	padding-left: 220px;
+}
+.orderHouse dt, .orderHouse dd {
+	float: left;
+	height: 32px;
+	line-height: 32px;
+}
+.orderHouse dt {
+	width: 370px;
+}
+.orderHouse dl label {
+	margin-right: 60px;
+}
+.orderHouse .sbt {
+	padding-left: 305px;
+	color: #999;
+}
+.orderHouse .Sb {
+	margin: 0 0 20px;
+	font-size: 12px;
+	padding: 0 12px;
+	height: 24px;
+	line-height: 24px;
+}
+.orderHouse .Close {
+	margin-left: 4px;
+}
+.orderHouse .radioBtn {
+	border: 0;
+	background-color: #eee;
+	width: 52px;
+	height: 32px;
+	line-height: 32px;
+	color: #000;
+	font-size: 14px;
+	cursor: pointer;
+	text-align: center;
+	display: inline-block;
+}
+.orderHouse .left {
+	border-radius: 3px 0 0 3px;
+}
+.orderHouse .right {
+	border-radius: 0 3px 3px 0;
+}
+.orderHouse .red {
+	background-color: #e84a01;
+	color: #fff;
+}
+.orderHouseList {
+	padding: 0 10px 30px 40px;
+	width: 95%;
+}
+.orderHouseList h3 {
+	color: #999;
+	height: 50px;
+	line-height: 50px;
+}
+.orderHouseList .HouseTab {
+	border: 0;
+	width: 100%;
+}
+.orderHouseList .HouseTab .Tl {
+	padding-left: 0;
+}
+.Succeed {
+	width: 100%;
+	border: solid #ddd;
+	border: solid #e9e9e9;
+	border-width: 0 0 2px 0;
+	text-align: center;
+	margin-bottom: 20px;
+	padding: 22px 0;
+	font-size: 18px;
+}
+.Succeed .info {
+	font-size: 24px;
+	padding-bottom: 20px;
+}
+.Succeed .gw {
+	font-size: 20px;
+}
+.Succeed img {
+	width: 80px;
+	height: 80px;
+	display: block;
+	margin: 0 auto 20px;
+	border-radius: 50%;
+}
+.Succeed .Star {
+	width: 100%;
+}
+.Succeed .Star i {
+	font-size: 22px;
+	margin: 3px;
+	color: #ffba00;
+}
+.Progress {
+	color: #979593;
+	font-size: 14px;
+	width: 100%;
+	height: 123px;
+}
+.Progress .Rw {
+	padding: 20px 0 15px;
+}
+.Progress ul {
+	margin: 0 auto;
+	width: 721px;
+}
+.Progress .Pt {
+	width: 735px;
+}
+.Progress .Pt li {
+	width: 332px;
+	text-align: left;
+	line-height: 32px;
+}
+.Progress li {
+	text-align: center;
+	list-style: none;
+	float: left;
+}
+.Progress .Pc {
+	background:url(../images/bg2.png)/*tpa=http://resource.iwjw.com/2.2/cache/css/bg/bg2.png*/ no-repeat;
+	width: 56px;
+	height: 56px;
+	background-position: -307px -622px;
+	line-height: 56px;
+}
+.Progress .Pc.Green {
+	background-position: -307px -552px;
+}
+.Progress .Pl {
+	width: 138px;
+	border-bottom: 6px #ccc solid;
+	height: 26px;
+}
+.Progress .Pl.Green {
+	border-bottom: 6px #00c0a5 solid;
+}
+.Progress .iconfont {
+	font-size: 40px;
+	color: #fff;
+}
+.Progress .Pt .Green {
+	color: #00c0a5;
+}
+#favoritesList {
+	width: 100%;
+	margin: 0 auto;
+}
+#favoritesList a, #favoritesList a:hover {
+	text-decoration: none;
+}
+#favoritesList .HouseTab {
+	margin-top: 60px;
+}
+#favoritesList .HouseTab a:hover, #favoritesList .HouseTab tr:hover dt a {
+	color: #e84a01;
+}
+#favoritesList .HouseTab tr td {
+	cursor: default;
+}
+#favoritesList .HouseTab .del {
+	opacity: 1;
+	filter: alpha(opacity=1);
+	background: #e9eaeb;
+}
+#favoritesList .HouseTab .btn {
+	display: block;
+	width: 120px;
+	height: 24px;
+	padding: 0;
+	line-height: 24px;
+	font-size: 12px;
+	text-align: center;
+	border-radius: 2px;
+	margin: 0 auto;
+}
+#favoritesList .HouseTab .btnRented {
+	color: #fff;
+	background: #d3d5d9;
+	border: 1px solid #ccc;
+}
+#favoritesList .HouseTab .btnDel {
+	background: #fff;
+	border: 1px solid #ccc;
+	margin-top: 28px;
+}
+#favoritesList .Null {
+	padding: 64px 0 35px 0;
+}
+#favoritesList .Null h4 {
+	background-position: center -733px;
+}
+#favoritesList .HouseTab .rented, #favoritesList .HouseTab .rented:hover {
+	background: #eee;
+	color: #999;
+}
+#favoritesList .HouseTab .rented a, #favoritesList .HouseTab .rented:hover a {
+	color: #999;
+}
+#favoritesList .HouseTab .rented:hover a:hover {
+	text-decoration: underline;
+}
+#favoritesList .HouseTab .rented a.btnDel {
+	color: #000;
+}
+.SeeTab {
+	border: 1px solid #eee;
+	margin: 20px auto;
+	background: #fff;
+}
+.SeeTab .left {
+	border-right: 1px solid #eee;
+	padding: 16px;
+	width: 278px;
+	vertical-align: top;
+}
+.SeeTab .left dt, .SeeTab .left dd {
+	float: left;
+	padding-bottom: 8px;
+}
+.SeeTab .left dt {
+	width: 62px;
+	color: #999;
+}
+.SeeTab .left dd {
+	width: 200px;
+	overflow: hidden;
+}
+.SeeTab .state {
+	border-bottom: 1px solid #eee;
+	padding: 8px 16px;
+	vertical-align: top;
+}
+.SeeTab .state .Fl, .SeeTab .state .Flw {
+	position: relative;
+	line-height: 32px;
+	height: 32px;
+	font-size: 18px;
+}
+.SeeTab .state .Fl i {
+	margin-left: 16px;
+	font-size: 14px;
+}
+.SeeTab .state .Flw {
+	width: 100%;
+}
+.SeeTab .state .Flw i {
+	position: absolute;
+	right: 0;
+	font-size: 14px;
+}
+.SeeTab .list {
+	padding: 8px 16px;
+}
+.SeeTab .list .tit {
+	margin: 4px;
+}
+.SeeTab .list td {
+	padding: 4px;
+	vertical-align: top;
+	width: 100px;
+	text-align: center;
+	color: #686e71;
+}
+.SeeTab .list td>p.Tr {
+	line-height: 1;
+	padding-bottom: 4px;
+}
+.housePrice {
+	position: relative;
+	font-size: 18px;
+	top: 1px;
+}
+.SeeTab .list .img {
+	position: relative;
+	width: 100px;
+}
+.SeeTab .list .img a, .SeeTab .list .img img {
+	width: 100px;
+	height: 60px;
+	border: 1px solid #eee;
+}
+.SeeTab .list .img a {
+	position: relative;
+	display: block;
+}
+.SeeTab .list .link {
+	color: #999;
+	width: 120px;
+	text-align: left;
+}
+.SeeTab .list .link p {
+	height: 38px;
+	color: #333;
+	overflow: hidden;
+}
+.SeeTab .list .link p.Cb {
+	line-height: 18px;
+	color: #666;
+	font-size: 12px;
+}
+.SeeTab .list .link p.Cb .iconfont {
+	margin-left: -3px;
+	top: -2px;
+}
+.SeeTab .state .Sb {
+	padding: 0 32px;
+	margin-left: 6px;
+}
+.SeeTab .Star {
+	display: inline-block;
+	margin: 0 0 0 10px;
+	vertical-align: text-top;
+	width: 160px;
+	color: #ffba00;
+}
+.SeeTab .Star i {
+	width: 25px;
+	float: left;
+	cursor: pointer;
+	font-size: 24px;
+	line-height: 20px;
+	margin-right: 5px;
+}
+.SeeTab .Star .nb {
+	color: #c6c6c6;
+}
+.SeeTab textarea {
+	margin-top: 10px;
+}
+.SeeTab .commentWord {
+	margin: 10px 0;
+	color: #999;
+}
+.SeeTab .appraiseDate {
+	text-align: right;
+}
+.SeeT {
+	margin-top: 113px;
+}
+.SeeTab .img .Tc {
+	position: absolute;
+	width: 40px;
+	height: 41px;
+	top: 1px;
+	left: 1px;
+	background:url(../images/yikan.png)/*tpa=http://resource.iwjw.com/2.2/cache/img/yikan.png*/ no-repeat;
+}
+.LeaHouse {
+	height: 32px;
+}
+.LeaHouse .Fl {
+	font-size: 18px;
+	padding-left: 20px;
+	line-height: 35px;
+}
+.LeaHouse .Fr {
+	cursor: pointer;
+}
+.Appointment {
+	margin-bottom: 60px;
+}
+.Appointment tr>td:first-child {
+	cursor: default;
+}
+.agentPhoto {
+	width: 32px;
+	height: 32px;
+	vertical-align: middle;
+	margin: 0 6px 0 -4px;
+}
+.Adviser {
+	position: absolute;
+	top: -85px;
+	right: 0;
+	border: 1px solid #e0e0e0;
+	background: #f5f5f5;
+	width: 240px;
+	height: 48px;
+	padding: 6px 10px 6px 30px;
+}
+.Adviser img {
+	width: 48px;
+	height: 48px;
+	float: left;
+	border-radius: 50%;
+	left: 0;
+}
+.Adviser dl {
+	float: left;
+	padding: 2px 0 2px 20px;
+	width: 100px;
+}
+.Adviser dt, .Adviser dd {
+	width: 170px;
+}
+.Adviser dd {
+	color: #979593;
+	line-height: 25px;
+}
+.Adviser dd i {
+	top: -1px;
+}
+.Adviser .aname {
+	height: 25px;
+	display: inline-flex;
+}
+.Adviser .Star {
+	margin-left: 1px;
+}
+.Adviser .Star i {
+	font-size: 14px;
+	color: #ffba00;
+}

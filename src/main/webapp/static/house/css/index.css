@@ -1,0 +1,600 @@
+.home {
+	background:url(../images/sh_home_bg.jpg)/*tpa=http://resource.iwjw.com/2.2/cache/img/sh_home_bg.jpg*/ center no-repeat;
+	width: 100%;
+	height: 528px;
+	position: fixed;
+	z-index: -1;
+}
+#Nav {
+	background: transparent;
+}
+#Nav img.Pa {
+	top: 72px;
+	left: 200px;
+}
+#Nav img.Pa.i1 {
+	top: 65px;
+}
+#Nav img.Pa.i2 {
+	top: 125px;
+	left: 270px;
+}
+.Banner1 {
+	height: 480px;
+	min-width: 960px;
+}
+.home .Banner1.Pr {
+	top: 48px;
+}
+.Banner1 #Nav {
+	height: 460px;
+	z-index: 997;
+}
+.Banner1 .hot {
+	width: 560px;
+	height: 150px;
+	top: 195px;
+	left: 200px;
+	border-radius: 2px;
+	float: left;
+	position: relative;
+}
+.Banner1 .hot .ST {
+	width: 100%;
+	height: 27px;
+	background:url(../images/bg2.png)/*tpa=http://resource.iwjw.com/2.2/cache/css/bg/bg2.png*/ no-repeat -172px -1216px;
+	color: #ccc;
+	padding-top: 10px;
+}
+.Banner1 .hot .ST li {
+	list-style: none;
+	display: inline-block;
+	width: 80px;
+	text-align: center;
+	font-size: 16px;
+	height: 100%;
+	line-height: 26px;
+	cursor: pointer;
+	position: relative;
+}
+.Banner1 .hot .ST li.act {
+	color: #fff;
+}
+.Banner1 .ST .new {
+	right: -16px;
+	top: -16px;
+	height: 18px;
+}
+.Banner1 .ST .new b {
+	display: block;
+	font-size: 12px;
+	background: #e84a01;
+	color: #fff;
+	height: 18px;
+	line-height: 18px;
+	border: 0;
+	border-radius: 2px;
+	padding: 0 3px;
+}
+.Banner1 .ST .new i {
+	display: block;
+	background: url(../images/bg2.png)/*tpa=http://resource.iwjw.com/2.2/cache/css/bg/bg2.png*/ no-repeat 0 -946px;
+	width: 10px;
+	height: 4px;
+}
+.Banner1 .STC {
+	background: #000;
+	background: rgba(0,0,0,0.7);
+	display: none;
+	border-radius: 0 4px 4px 4px;
+	width: 530px;
+	height: 105px;
+	border: 0;
+	position: relative;
+	padding: 8px 15px 0;
+	filter: Alpha(opacity=70);
+}
+.Banner1 .STC>p.Pa {
+	right: 0;
+	top: -36px;
+	color: #33302f;
+	font-size: 16px;
+	line-height: 36px;
+	height: 36px;
+}
+.Banner1 .STC>p.Pa b, .Banner1 .ST .new b {
+	font-family: 'Arial';
+}
+.Banner1 .STC.act {
+	display: block;
+}
+.Banner1 .hot form {
+	height: 56px;
+	position: relative;
+	padding-top: 8px;
+}
+.Banner1 .hot .searchForm p.Pa {
+	width: 371px;
+	top: 56px;
+}
+.Banner1 .hot form i.one, .Banner1 .hot form i.two {
+	background: url(../images/bg2.png)/*tpa=http://resource.iwjw.com/2.2/cache/css/bg/bg2.png*/ no-repeat -157px -1157px;
+	display: block;
+	height: 8px;
+	width: 100%;
+	position: absolute;
+	top: 0;
+}
+.Banner1 .hot form i.two {
+	background-position: -65px -1157px;
+}
+.Banner1 .hot input {
+	width: 360px;
+	height: 20px;
+	line-height: 20px;
+	border: 0;
+	border-radius: 4px 0 0 4px;
+	padding: 14px 6px;
+}
+.Banner1 .hot button {
+	font-size: 36px;
+	height: 48px;
+	line-height: 48px;
+	width: 48px;
+	left: -4px;
+	border-radius: 0 4px 4px 0;
+}
+.Banner1 .hot p.Rec {
+	clear: both;
+	height: 31px;
+	line-height: 31px;
+	position: relative;
+	overflow: hidden;
+}
+.Banner1 .hot p.Rec a {
+	color: #b5b5b5;
+	padding-right: 10px;
+	white-space: nowrap;
+}
+.Banner1 .hot p.Rec a:hover {
+	color: #e84a01;
+	text-decoration: none;
+}
+.Banner1 .hot .map {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	width: 96px;
+	height: 48px;
+	line-height: 48px;
+	text-align: center;
+	font-size: 18px;
+	color: #fff;
+	background: #676766;
+	border-radius: 4px;
+}
+.Banner1 .hot .map:hover {
+	background: #999;
+	text-decoration: none;
+}
+.video {
+	position: absolute;
+	top: -20px;
+	left: 412px;
+	width: 135px;
+	height: 40px;
+	background:url(../images/bg2.png)/*tpa=http://resource.iwjw.com/2.2/cache/css/bg/bg2.png*/ no-repeat 0 -954px;
+	z-index: 990;
+	display:block;
+}
+.video a {
+	color: #686e71;
+	font-size: 14px;
+	display: block;
+	line-height: 40px;
+	text-align: center;
+	cursor: pointer;
+}
+.video a:hover {
+	text-decoration: none;
+}
+.video a .iconfont {
+	font-size: 24px;
+	vertical-align: sub;
+	color: #e84a01;
+}
+.video a:hover .iconfont {
+	color: #f16d2f;
+}
+.PopVideo .closed {
+	position: absolute;
+	top: -14px;
+	right: -40px;
+	font-size: 32px;
+	line-height: 32px;
+	color: #c3c7cd;
+	cursor: pointer;
+}
+.PopVideo .closed:hover {
+	color: #fefefe;
+}
+.Box1 {
+	padding: 50px 0;
+	text-align: center;
+	background: #f5f5f5;
+	min-width: 960px;
+}
+.Box1 h3 {
+	font-size: 30px;
+	line-height: 60px;
+	color: #e84a01;
+	font-weight: normal;
+}
+.Box1 p {
+	font-size: 20px;
+	padding-top: 10px;
+}
+.Box1 p i, .Box1.Server h3 i {
+	color: #e84a01;
+}
+.Box1 .Rr {
+	margin: 0 4px;
+	color: #31e0bd;
+}
+.Box1.Server {
+	padding: 30px 0;
+	background: #fff;
+}
+.Box1.Server p {
+	font-size: 16px;
+	color: #9b9ea1;
+	padding-top: 0;
+}
+.Box1.Server h3 {
+	color: #33302f;
+	padding: 6px 0 4px;
+	font-size: 36px;
+}
+.Box1 .server {
+	height: 326px;
+	list-style: none;
+	color: #999;
+	margin-top: 6px;
+}
+.Box1 .server li {
+	float: left;
+	display: inline;
+	margin: 20px 0 20px 172px;
+	width: 200px;
+	text-align: center;
+}
+.Box1 .server li:first-child {
+	margin-left: 15px;
+}
+.Box1 .server li i {
+	display: block;
+	font-size: 16px;
+	color: #979593;
+	padding-top: 6px;
+}
+.Box1 .server li b {
+	font-size: 30px;
+	color: #33302f;
+	font-weight: normal;
+}
+.Box1 .server img {
+	width: 100%;
+	height: 200px;
+}
+.Play {
+	height: 180px;
+	padding: 0 115px;
+	margin: 15px auto;
+	min-width: 960px;
+	-moz-user-select: none;
+}
+.Play .Oh {
+	height: 180px;
+}
+.Play .scroll {
+	width: 2342px;
+	position: relative;
+}
+.Play .house {
+	width: 224px;
+	height: 180px;
+	float: left;
+	background: #fff;
+	text-align: center;
+	margin-right: 20px;
+	position: relative;
+	overflow: hidden;
+}
+.Play .house:first-child {
+	margin-left: 0;
+}
+.Play .house img, .Play .house div.over {
+	height: 135px;
+	width: 100%;
+	margin: 0;
+	display: block;
+}
+.Play .house .videoBtn {
+	top: 44px;
+	margin-top: 0;
+}
+.Play .house .videoBtn img {
+	width: 100%;
+	height: 100%;
+}
+.Play .house div {
+	text-align: center;
+	padding-top: 6px;
+}
+.Play .house div.over {
+	position: absolute;
+	top: 0;
+	left: 0;
+	text-align: left;
+	background: #33302f;
+	filter: Alpha(opacity=76);
+	background: rgba(51,48,47,0.76);
+	padding-top: 12px;
+	height: 122px;
+	display: none;
+}
+.Play .house div b, .Play .house div i {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color: #33302f;
+	padding: 0 10px;
+}
+.Play .house div.over i {
+	display: block;
+}
+.Play .house div.titles {
+	position: relative;
+	text-align: left;
+	line-height: 46px;
+	height: 46px;
+	padding-top: 0;
+}
+.Play .house b {
+	width: 120px;
+	display: inline-block;
+}
+.Play .house div.over i {
+	padding-left: 20px;
+	color: #fff;
+	line-height: 24px;
+	letter-spacing: 1px;
+}
+.Play .house div.over span {
+	padding-left: 10px;
+}
+.Play .house i.price {
+	color: #686e71;
+	position: absolute;
+	right: 0;
+}
+.Play .house i.price span {
+	font-size: 18px;
+}
+.Play .house:hover {
+	text-decoration: none;
+}
+.Play .house:hover div.over {
+	display: block;
+}
+.Play .left, .Play .right {
+	position: absolute;
+	top: 40px;
+	z-index: 9;
+	cursor: pointer;
+	font-size: 65px;
+	color: #c5c5c5;
+}
+.Play .left:hover, .Play .right:hover {
+	color: #b5b5b5;
+}
+.Play .left {
+	left: 0;
+}
+.Play .right {
+	right: 0;
+}
+.Soot {
+	background: #4cb19d;
+	height: 396px;
+	min-width: 960px;
+}
+.Soot .Rw {
+	background:url(../images/key.png)/*tpa=http://resource.iwjw.com/2.2/cache/css/bg/key.png*/ no-repeat right bottom -40px;
+	height: 100%;
+	color: #fff;
+}
+.Soot h3, .Soot p {
+	position: absolute;
+}
+.Soot h3 {
+	font-size: 36px;
+	top: 95px;
+	font-weight: normal;
+}
+.Soot p, .Soot .Pa {
+	font-size: 18px;
+}
+.Soot .Pa a, .Soot .Pa i {
+	font-size: 24px;
+}
+.Soot p {
+	top: 157px;
+	left: 0;
+}
+.Soot .Pa {
+	height: 50px;
+	line-height: 50px;
+	top: 225px;
+	left: 0;
+	text-align: center;
+}
+.Soot .Pa a, .Soot .Pa i {
+	color: #fff;
+	display: inline-block;
+	height: 100%;
+	text-align: center;
+}
+.Soot .Pa a {
+	width: 208px;
+	margin: 0 16px 0 0;
+}
+.Soot .Pa a {
+	background: url(../images/bg2.png)/*tpa=http://resource.iwjw.com/2.2/cache/css/bg/bg2.png*/ no-repeat -84px -540px;
+	color: #3faf99;
+}
+.Soot .Pa a:hover {
+	text-decoration: none;
+	background-position: 0 -1362px;
+	color: #fff;
+}
+.Soot .Pa i {
+	margin: 0 0 0 10px;
+	color: #252525;
+	text-align: left;
+}
+.Soot .Pa i img {
+	vertical-align: bottom;
+}
+.Say {
+	height: 340px;
+	backgroundurl(../images/saybg.jpg)/*tpa=http://resource.iwjw.com/2.2/cache/css/bg/saybg.jpg*/ no-repeat center;
+	text-align: center;
+	padding: 10px 0;
+	min-width: 960px;
+}
+.Say .Rw>p {
+	color: #000;
+	font-size: 36px;
+	padding: 32px 0;
+}
+.Say .word {
+	width: 800px;
+	margin: 0 auto;
+	overflow: hidden;
+	position: relative;
+}
+.Say .word .scroll {
+	height: 300px;
+}
+.Say .word .scroll>div {
+	width: 800px;
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.Say .word .scroll>div:first-child {
+	display: block;
+}
+.Say .Sc {
+	line-height: 38px;
+}
+.Say .Sc span {
+	background-color: #000;
+	color: #fff;
+	font-size: 20px;
+	padding: 7px;
+}
+.Say .Sc i {
+	color: #ff7b11;
+}
+.Say .Sf {
+	color: #b5b5b5;
+	font-size: 16px;
+	padding-top: 18px;
+}
+.Say .Sf b {
+	color: #33302f;
+	font-weight: normal;
+}
+.App {
+	height: 450px;
+	background:url(../images/down.jpg)/*tpa=http://resource.iwjw.com/2.2/cache/css/bg/down.jpg*/ no-repeat center;
+	min-width: 960px;
+}
+.App .Rw {
+	height: 100%;
+}
+.App .guide {
+	bottom: 0;
+}
+.App .guide img {
+	vertical-align: bottom;
+}
+.App p, .App b, .App div.down {
+	position: absolute;
+	width: 480px;
+	text-align: center;
+	right: 50px;
+}
+.App p {
+	color: #f1f1f1;
+	font-size: 54px;
+	top: 98px;
+}
+.App b {
+	display: block;
+	color: #fff;
+	font-size: 44px;
+	top: 180px;
+}
+.App b i {
+	color: #ff7b11;
+}
+.App div.down {
+	top: 291px;
+	right: 42px;
+}
+.App div.down a {
+	background: url(../images/bg2.png)/*tpa=http://resource.iwjw.com/2.2/cache/css/bg/bg2.png*/ no-repeat 0 -1257px;
+	width: 198px;
+	height: 49px;
+	display: inline-block;
+	line-height: 49px;
+	color: #fff;
+	font-size: 18px;
+}
+.App div.down a:first-child {
+	margin-right: 30px;
+}
+.App div.down .iconfont {
+	font-size: 38px;
+	top: -2px;
+}
+.App div.down .android {
+	font-size: 32px;
+	top: -1px;
+}
+.App div.down a:hover {
+	background-position: 0 -1310px;
+	text-decoration: none;
+	color: #666;
+}
+.Hint {
+	width: 100%;
+	background: #e84a01;
+	color: #fff;
+	line-height: 32px;
+	height: 32px;
+	text-align: center;
+	font-size: 16px;
+	min-width: 960px;
+	position: absolute;
+	top: 0;
+}
+.Hint i.Pa {
+	cursor: pointer;
+	right: 20px;
+	position: absolute;
+}
