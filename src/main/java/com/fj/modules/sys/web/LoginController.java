@@ -71,7 +71,7 @@ public class LoginController extends BaseController{
 //		String view;
 //		view = "/WEB-INF/views/modules/sys/sysLogin.jsp";
 //		view = "classpath:";
-//		view += "jar:file:/D:/GitHub/jeesite/src/main/webapp/WEB-INF/lib/jeesite.jar!";
+//		view += "jar:file:/D:/GitHub/fj/src/main/webapp/WEB-INF/lib/fj.jar!";
 //		view += "/"+getClass().getName().replaceAll("\\.", "/").replace(getClass().getSimpleName(), "")+"view/sysLogin";
 //		view += ".jsp";
 		return "modules/sys/sysLogin";

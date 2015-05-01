@@ -3,3 +3,4 @@
 <link rel="stylesheet" href="${st}/css/Public.css">
 <script src="${st}/js/jQuery.js"></script>
 <script src="${st}/js/Public.js"></script>
+<script src="${st}/js/mcmd.js"></script>

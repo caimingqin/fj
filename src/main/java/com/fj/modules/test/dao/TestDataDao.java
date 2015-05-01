@@ -8,9 +8,9 @@ import com.fj.common.persistence.annotation.MyBatisDao;
 import com.fj.modules.test.entity.TestData;
 
 /**
- * 单表生成DAO接口
- * @author ThinkGem
- * @version 2015-03-30
+ * testDAO接口
+ * @author caimingqin
+ * @version 2015-04-26
  */
 @MyBatisDao
 public interface TestDataDao extends CrudDao<TestData> {

@@ -1,5 +1,5 @@
 /**
-\ * Copyright &copy; 2012-2013 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
+\ * Copyright &copy; 2012-2013 <a href="https://github.com/fj">fj</a> All rights reserved.
  */
 package com.fj.modules.cms.entity;
 

@@ -20,6 +20,7 @@
 		a.remarks AS "remarks",
 		a.sort AS "sort",
 		a.del_flag AS "delFlag",
+		a.addr AS "addr",
 		a2.name AS "area.name"
 	</sql>
 	
@@ -105,6 +106,7 @@
 			plot_ratio,
 			green_ratio,
 			remarks,
+			addr,
 			sort
 		) VALUES (
 			#{id},
@@ -118,6 +120,7 @@
 			#{plotRatio},
 			#{greenRatio},
 			#{remarks},
+			#{addr},
 			#{sort}
 		)
 	</insert>
@@ -134,6 +137,7 @@
 			plot_ratio = #{plotRatio},
 			green_ratio = #{greenRatio},
 			remarks = #{remarks},
+			addr = #{addr},
 			sort = #{sort}
 		WHERE id = #{id}
 	</update>

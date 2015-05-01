@@ -14,9 +14,9 @@ import com.fj.modules.test.entity.TestData;
 import com.fj.modules.test.dao.TestDataDao;
 
 /**
- * 单表生成Service
- * @author ThinkGem
- * @version 2015-03-30
+ * testService
+ * @author caimingqin
+ * @version 2015-04-26
  */
 @Service
 @Transactional(readOnly = true)

@@ -9,7 +9,7 @@ import com.fj.modules.test.entity.TestDataMain;
 
 /**
  * 主子表生成DAO接口
- * @author ThinkGem
+ * @author moonkingcai
  * @version 2015-03-30
  */
 @MyBatisDao

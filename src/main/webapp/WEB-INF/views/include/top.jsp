@@ -6,9 +6,11 @@
 		<dt>
 			<a class="logo" href="/">房界</a>
 			<p class="city none">
-				<a href="#" id="Province">上海<i class="iconfont"></i></a> <b> <i></i>
-					<a href="javascript:setProvince(12438)">北京</a> <a
-					href="javascript:setProvince(2)">上海</a>
+				<a href="#" id="Province">厦门<i class="iconfont"></i></a> <b> <i></i>
+					<a href="javascript:setProvince(12438)">福州</a> 
+					<a href="javascript:setProvince(2)">厦门</a>
+					<a href="javascript:setProvince(2)">泉州</a>
+					<a href="javascript:setProvince(2)">漳州</a>
 				</b>
 			</p>
 			<p>

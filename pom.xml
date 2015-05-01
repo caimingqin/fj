@@ -754,10 +754,10 @@
 						</goals>
 						<configuration>
 							<classesDirectory>${project.outputDirectory}</classesDirectory>
-							<finalName>jeesite</finalName>
+							<finalName>fj</finalName>
 							<outputDirectory>${project.build.directory}/${project.artifactId}/WEB-INF/lib</outputDirectory>
 							<includes>
-					        	<include>com/thinkgem/jeesite/**</include>
+					        	<include>com/thinkgem/fj/**</include>
 					       	</includes>
 						</configuration>
 					</execution>
@@ -780,9 +780,9 @@
 				<configuration>
 			        <obfuscate>true</obfuscate>
 			    	<options>
-                        <option>-injars ${project.build.directory}/${project.artifactId}/WEB-INF/lib/jeesite.jar</option>
+                        <option>-injars ${project.build.directory}/${project.artifactId}/WEB-INF/lib/fj.jar</option>
                     </options>
-                    <outjar>${project.artifactId}/WEB-INF/lib/jeesite_out.jar</outjar>
+                    <outjar>${project.artifactId}/WEB-INF/lib/fj_out.jar</outjar>
                     <outputDirectory>${project.build.directory}</outputDirectory>
 			        <proguardInclude>${basedir}/proguard.cfg</proguardInclude>
 					<source>${jdk.version}</source>
@@ -812,7 +812,7 @@
 				<version>2.4</version>
 				<configuration>
 					<packagingExcludes>
-						<!-- WEB-INF/classes/com/thinkgem/jeesite/** -->
+						<!-- WEB-INF/classes/com/thinkgem/fj/** -->
 						WEB-INF/classes/org/apache/ibatis/**,
 						WEB-INF/classes/org/mybatis/spring/**
 					</packagingExcludes>
@@ -987,12 +987,12 @@
 								<sql driver="${jdbc.driver}" url="${jdbc.url}" userid="${jdbc.username}" password="${jdbc.password}" 
 									onerror="continue" encoding="${project.build.sourceEncoding}">
 									<classpath refid="maven.test.classpath" />
-									<transaction src="db/sys/jeesite_${jdbc.type}.sql"/>
-									<transaction src="db/cms/jeesite_${jdbc.type}.sql"/>
-									<transaction src="db/oa/jeesite_${jdbc.type}.sql"/>
-									<transaction src="db/gen/jeesite_${jdbc.type}.sql"/>
+									<transaction src="db/sys/fj_${jdbc.type}.sql"/>
+									<transaction src="db/cms/fj_${jdbc.type}.sql"/>
+									<transaction src="db/oa/fj_${jdbc.type}.sql"/>
+									<transaction src="db/gen/fj_${jdbc.type}.sql"/>
 									<transaction src="db/gen/example_${jdbc.type}.sql"/>
-									<transaction src="db/test/jeesite_${jdbc.type}.sql"/>
+									<transaction src="db/test/fj_${jdbc.type}.sql"/>
 									<transaction src="db/act/drop/activiti.${jdbc.type}.drop.engine.sql"/>
 									<transaction src="db/act/drop/activiti.${jdbc.type}.drop.history.sql"/>
 									<transaction src="db/act/drop/activiti.${jdbc.type}.drop.identity.sql"/>
@@ -1014,8 +1014,8 @@
 										<property name="datatypeFactory" value="${dbunit.datatype}" />
 									</dbconfig>
 									<classpath refid="maven.test.classpath" />
-									<operation type="INSERT" src="db/sys/jeesite_data.xls" format="xls" transaction="true"/>
-									<operation type="INSERT" src="db/cms/jeesite_data.xls" format="xls" transaction="true"/>
+									<operation type="INSERT" src="db/sys/fj_data.xls" format="xls" transaction="true"/>
+									<operation type="INSERT" src="db/cms/fj_data.xls" format="xls" transaction="true"/>
 									
 								</dbunit>
 								

@@ -51,7 +51,7 @@ public class User extends DataEntity<User> {
 	private Date oldLoginDate;	// 上次登陆日期
 	
 	private Role role;	// 根据角色查询用户条件
-	
+	private String gender;
 	private List<Role> roleList = Lists.newArrayList(); // 拥有角色列表
 
 	public User() {
@@ -272,6 +272,14 @@ public class User extends DataEntity<User> {
 
 	public void setRole(Role role) {
 		this.role = role;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 	@JsonIgnore

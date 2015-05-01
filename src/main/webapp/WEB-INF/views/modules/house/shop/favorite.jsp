@@ -5,9 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<title>收藏夹-爱屋吉屋</title>
-<meta name="keywords" content="爱屋吉屋">
-<meta name="description" content="爱屋吉屋">
+<title>收藏夹-房界</title>
+<meta name="keywords" content="房界">
+<meta name="description" content="房界">
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <link rel="stylesheet" href="${st}/css/House.css">
 <script src="${st}/js/house.js"></script>
@@ -23,48 +23,53 @@
 			<th class="Tl" style="font-size:20px;">收藏夹</th>
 			<th class="Tr" colspan="5"><button id="delNoRent" class="Sb btnClear" disabled>清除失效房源</button></th>
 		</tr>
-				<tr id="iKKOuuAjkEo" ht="1" >
-			<td class="imgtd tdF">
-				<a href="http://www.iwjw.com/chuzu/iKKOuuAjkEo/" target="_blank" class="hPic Fl">
-										 <!-- 独家 --><i class="dj"></i> 										<img src="http://house-images-water.oss.aliyuncs.com/438294379e8f47e5aea28c41431c85fb.t">
-				</a>
-				<div class="Fl inf">
-				<h4>
-					<b>
-						<a href="http://www.iwjw.com/chuzu/iKKOuuAjkEo/" target="_blank" title="大西洋新城">
-							<i>大西洋新城</i> <!--<i>310号</i>-->
-						</a>
-					</b>
-				</h4>
-				<p class="Cb">
-					<i class="iconfont">&#xe60b;</i>朝阳 - 望京 广顺北大街33号院
-				</p>
-				<p class="Cb"><i class="iconfont">&#xe60c;</i>15号线 </p>
-								<p class="Cb Few"> 今日发布 </p>
-								</div>
-			</td>
-			<td>2室1厅<i class="ll"></i></td>
-			<td>68m²<i class="ll"></i></td>
-			<td>中层<i class="ll"></i></td>
-			<td>
-				<p class="Tr"><b><i class="housePrice">5000</i>  元/月</b></p>
-							</td>
-			<td class="tdL">
-							<button class="btn btnRented">预约中</button>
-							<a href="" title="删除" class="btn btnDel">删除</a>
-			</td>
-		</tr>
-
-				<tr id="HFeNbfKAPgg" ht="1" >
+		<c:forEach var="si" items="${favorites}"> 
+				<tr id="iKKOuuAjkEo" ht="1">
+					<td class="imgtd tdF"><a
+						href="${stx }/detail?id=${si.house.id}" target="_blank"
+						class="hPic Fl"> <!-- 独家 -->
+							<i class="dj"></i> <img
+							src="${si.house.mainImage}">
+					</a>
+						<div class="Fl inf">
+							<h4>
+								<b> <a href="${stx }/detail?id=${si.house.id}"
+									target="_blank" title="${si.house.name}"> <i>${si.house.name}</i> <!--<i>310号</i>-->
+								</a>
+								</b>
+							</h4>
+							<p class="Cb">
+								<i class="iconfont">&#xe60b;</i>${si.house.area.name} - ${si.house.smallArea.name}
+							</p>
+							<p class="Cb">
+								<i class="iconfont">&#xe60c;</i>15号线
+							</p>
+							<p class="Cb Few">今日发布</p>
+						</div></td>
+					<td>${fns:dl(si.house.housetype,"house_type") }<i class="ll"></i></td>
+					<td>${si.house.areanum}m²<i class="ll"></i></td>
+					<td>${si.house.floor}<i class="ll"></i></td>
+					<td>
+						<p class="Tr">
+							<b><i class="housePrice">${si.house.rentprice}</i> 元/月</b>
+						</p>
+					</td>
+					<td class="tdL">
+						<button class="btn btnRented">预约中</button> <a href="" title="删除"
+						class="btn btnDel">删除</a>
+					</td>
+				</tr>
+           </c:forEach>
+				<!-- <tr id="HFeNbfKAPgg" ht="1" >
 			<td class="imgtd tdF">
 				<a href="http://www.iwjw.com/chuzu/HFeNbfKAPgg/" target="_blank" class="hPic Fl">
-															 <!-- 视频 --><i class="videoBtn"><img src="http://resource.iwjw.com/2.2/cache/img/videoBtn.png"></i>					<img src="http://g4.ykimg.com/0100641F4654D0B79C5BE01D245C5DD5AD0DA3-F7A0-6991-6444-B0D2C91AD61C">
+															 视频<i class="videoBtn"><img src="http://resource.iwjw.com/2.2/cache/img/videoBtn.png"></i>					<img src="http://g4.ykimg.com/0100641F4654D0B79C5BE01D245C5DD5AD0DA3-F7A0-6991-6444-B0D2C91AD61C">
 				</a>
 				<div class="Fl inf">
 				<h4>
 					<b>
 						<a href="http://www.iwjw.com/chuzu/HFeNbfKAPgg/" target="_blank" title="福顺里小区">
-							<i>福顺里小区</i> <!--<i>4号</i>-->
+							<i>福顺里小区</i> <i>4号</i>
 						</a>
 					</b>
 				</h4>
@@ -85,7 +90,7 @@
 							<button class="btn btnSee">我要看房</button>	
 							<a href="" title="删除" class="btn btnDel">删除</a>
 			</td>
-		</tr>
+		</tr> -->
 
 			</table>
 	</div> <!-- favoritesList end -->

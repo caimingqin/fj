@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.fj.common.persistence.Page;
 import com.fj.common.service.CrudService;
 import com.fj.modules.house.entity.House;
+import com.fj.modules.house.entity.SmallArea;
 import com.fj.modules.house.dao.HouseDao;
 
 /**
@@ -42,6 +43,12 @@ public class HouseService extends CrudService<HouseDao, House> {
 	@Transactional(readOnly = false)
 	public void delete(House house) {
 		super.delete(house);
+	}
+
+	public Page<House> findPage(Page<House> page) {
+		List<House> list = dao.search(page.getQeuryObject());
+		page.setList(list);
+		return page;
 	}
 	
 }

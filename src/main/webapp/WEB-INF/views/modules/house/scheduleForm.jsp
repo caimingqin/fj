@@ -130,7 +130,8 @@
 					</td>
 					<td>
 					<c:if test="${scheduleItem.status==20}">
-					 <a href="${ctx}/house/schedule/form?id=">生成订单</a>
+					<!-- 根据已看房编号生成合同  -->
+					 <a href="${ctx}/house/contract/toSave?id=eb123135138f4f7ca99b59058b2c0000" href="javascript;;">生成合同</a>
 					</c:if>
 				   </td>	
 					</tr>

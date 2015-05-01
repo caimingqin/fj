@@ -59,4 +59,14 @@ public class HttpTest {
             }  
         }  
     }  
+	@Test
+	public void testww(){
+		String aa="|/userfiles/thinkgem/files/f01/2a5dfa955ab9419ca04340f39ec74a83_s.jpg|/userfiles/thinkgem/files/f01/b1696023c0804501ae6b35208cebf119_s.jpg|/userfiles/thinkgem/files/f01/953a4bc465ab472683c420ed60a6d73d_s.jpg|/userfiles/thinkgem/files/f01/85a78d98c39849c8a50a0fa1e1eb8091_s.jpg|/userfiles/thinkgem/files/f01/3d323696905140b2a61a0beb361ec452_s.jpg|/userfiles/thinkgem/files/f01/c1e0404f512f44389658015fb105fb02_s.jpg|/userfiles/thinkgem/files/f01/2a5dfa955ab9419ca04340f39ec74a83_s.jpg|/userfiles/thinkgem/files/f01/b1696023c0804501ae6b35208cebf119_s.jpg|/userfiles/thinkgem/files/f01/953a4bc465ab472683c420ed60a6d73d_s.jpg|/userfiles/thinkgem/files/f01/85a78d98c39849c8a50a0fa1e1eb8091_s.jpg|/userfiles/thinkgem/files/f01/3d323696905140b2a61a0beb361ec452_s.jpg|/userfiles/thinkgem/files/f01/c1e0404f512f44389658015fb105fb02_s.jpg";
+//	   String aa="foo:000:001";
+		String[] split = aa.split("\\|");
+	   for(String s:split){
+		   System.out.println(s);
+	   }
+	
+	}
 }

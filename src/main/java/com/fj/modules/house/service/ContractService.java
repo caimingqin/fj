@@ -16,7 +16,7 @@ import com.fj.modules.house.dao.ContractDao;
 /**
  * 合同管理Service
  * @author caimingqin
- * @version 2015-04-21
+ * @version 2015-04-25
  */
 @Service
 @Transactional(readOnly = true)

@@ -18,6 +18,18 @@
 </style>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <link rel="stylesheet" href="${st}/css/index.css">
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$("button[type=submit]").on("click",function(){
+		debugger;
+		document.getElementById("mSearchForm").submit();
+		//$("#mSearchForm").submit();
+	});
+	
+})
+
+</script>
 </head>
 <body>
 <div class="home"></div>
@@ -29,17 +41,16 @@
     	<div class="hot">
       		<ul class="ST">
         		<li ht="1" >租房</li>
-        		|
-        		<li ht="2"  class="act">二手房
+        		<!-- |
+        		<li ht="1"  class="act">二手房
           			<div class="Pa new"><b>NEW</b><i></i></div>
-        		</li>
+        		</li> -->
       		</ul>
-      	<div class="STC" id="rentSrc">
+     <%--  	<div class="STC" id="rentSrc">
         	<p class="Pa">全上海近 <b>3</b> 天新增 <b>7826</b> 套，出租 <b>946</b> 套</p>
-        	<form method="get" action="/chuzu/shanghai/" id="Search" class="searchForm" provinceId="2" provincePy="shanghai" provinceName="上海" ht="1">
+        	<form method="get" action="${stx}/search" id="Search" class="searchForm" provinceId="2" provincePy="shanghai" provinceName="上海" ht="1">
           		<i class="one"></i>
-          		<input type="text" name="kw" placeholder="请输入小区名称或地址" maxlength="50" autocomplete="off" style="width: 372px;height: 48px;">
-          		<input type="hidden" name="t" value="1">
+          		<input type="text" name="addr" placeholder="请输入小区名称或地址" maxlength="50" autocomplete="off" style="width: 372px;height: 48px;">
           		<button type="submit" class="iconfont">&#xe633;</button>
         	</form>
         	<p class="Rec"> 
@@ -56,12 +67,12 @@
                 <a href="#" >莘庄</a> 
             </p>
         	<a href="#" class="map">地图找房</a> 
-        </div>
+        </div> --%>
       	<div class="STC act" id="sellSrc">
             <p class="Pa">上海有 <b>998</b> 套二手房正在出售</p>
-            <form method="get" action="/sale/map/" id="sellSearch" class="searchForm" provinceId="2" provincePy="shanghai" provinceName="上海" ht="2">
-              <i class="two"></i>
-              <input type="text" name="kw" placeholder="请输入小区名称或地址" maxlength="50" autocomplete="off">
+            <form method="post" action="${stx}/search" id="mSearchForm" class="searchForm" provinceId="2" provincePy="shanghai" provinceName="上海" ht="2">
+              <i class="one"></i>
+              <input type="text" name="addr" placeholder="请输入小区名称或地址" maxlength="50" autocomplete="off">
               <button type="submit" class="iconfont">&#xe633;</button>
             </form>
             <p class="Rec"> 

@@ -1,5 +1,5 @@
 /*!
- * Copyright &copy; 2012-2013 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
+ * Copyright &copy; 2012-2013 <a href="https://github.com/fj">JeeSite</a> All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
@@ -37,7 +37,7 @@ input.btn:hover {*color:#333333}
 
 .supcan {border:1px #d3d3d3 solid;height:300px;}
 
-.control-group {padding-bottom:8px;margin-bottom:0;border-bottom:1px dotted #dddddd;} legend + .control-group {margin-top:8px;}
+.control-group {padding-bottom:4px;margin-bottom:0;border-bottom:1px dotted #dddddd;} legend + .control-group {margin-top:8px;}
 .controls .lbl {display:inline-block;padding-top:5px;margin-bottom:0;vertical-align:middle;}
 .measure-input {background:url("../images/ruler.gif") repeat-x scroll 0 bottom transparent;}
 .input-min{width:30px;} .input-mini{width:90px;} .input-small{width:120px;} .input-medium {width:163px;}.input-xxlarge {width:460px;}
@@ -53,7 +53,7 @@ input.btn:hover {*color:#333333}
 .form-search .ul-form li.btns{padding-left:10px;}
 .form-search .ul-form li.btns .btn{margin-right:5px;}
 
-.form-horizontal {margin:0 10px;} .form-horizontal .control-group {margin-bottom:8px;}
+.form-horizontal {margin:0 10px;} .form-horizontal .control-group {margin-bottom:4px;}
 .form-horizontal .control-label {padding-top:3px;} .form-horizontal .controls {text-align:left;overflow-x:auto;overflow-y:hidden;}
 .form-horizontal .controls label.error {background-position:0 2px;}
 

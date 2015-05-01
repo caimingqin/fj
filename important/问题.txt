@@ -1,0 +1,14 @@
+	$("#seeHouseBtn").on("click",function(){
+		$.ajax({
+			url : "${stx}/seeHouse/add",
+			type : "POST",
+			data:{houseId:"${house.id}"},
+			success : function(rep) {
+				console.log(rep);
+			},
+			error : function(data) {//请求成功后，怎么跑到这里了
+				console.log(data);
+				alert(data);
+			}
+		});
+	})

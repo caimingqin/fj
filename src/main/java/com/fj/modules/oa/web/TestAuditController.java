@@ -25,7 +25,7 @@ import com.fj.modules.oa.service.TestAuditService;
 
 /**
  * 审批Controller
- * @author thinkgem
+ * @author moonkingcai
  * @version 2014-05-16
  */
 @Controller

@@ -9,7 +9,7 @@ import com.fj.modules.sys.entity.User;
 
 /**
  * 审批Entity
- * @author thinkgem
+ * @author moonkingcai
  * @version 2014-05-16
  */
 public class TestAudit extends ActEntity<TestAudit> {

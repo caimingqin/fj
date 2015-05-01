@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fj.modules.house.dao.TrustDao">
+    
+	<sql id="trustColumns">
+		a.id AS "id",
+		a.rentway AS "rentWay",
+		a.area_name AS "areaName",
+		a.samll_area_name AS "samllAreaName",
+		a.building AS "building",
+		a.room AS "room",
+		a.bedroom AS "bedroom",
+		a.livingroom AS "livingroom",
+		a.wc AS "wc",
+		a.areanum AS "areanum",
+		a.rentprice AS "rentprice",
+		a.name AS "name",
+		a.gender AS "gender",
+		a.mobile AS "mobile",
+		a.addr AS "addr",
+		a.remarks AS "remarks",
+		a.create_by AS "createBy.id",
+		a.create_date,
+		a.update_by AS "updateBy.id",
+		a.update_date,
+		a.delFlag AS "delFlag"
+	</sql>
+	
+	<sql id="trustJoins">
+	</sql>
+    
+	<select id="get" resultType="Trust">
+		SELECT 
+			<include refid="trustColumns"/>
+		FROM shop_trust a
+		<include refid="trustJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="Trust">
+		SELECT 
+			<include refid="trustColumns"/>
+		FROM shop_trust a
+		<include refid="trustJoins"/>
+		<where>
+			
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="rentWay != null and rentWay != ''">
+				AND a.rentway = #{rentWay}
+			</if>
+			<if test="areaName != null and areaName != ''">
+				AND a.area_name LIKE 
+					<if test="dbName == 'oracle'">'%'||#{areaName}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{areaName}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{areaName},'%')</if>
+			</if>
+			<if test="samllAreaName != null and samllAreaName != ''">
+				AND a.samll_area_name LIKE 
+					<if test="dbName == 'oracle'">'%'||#{samllAreaName}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{samllAreaName}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{samllAreaName},'%')</if>
+			</if>
+			<if test="building != null and building != ''">
+				AND a.building LIKE 
+					<if test="dbName == 'oracle'">'%'||#{building}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{building}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{building},'%')</if>
+			</if>
+			<if test="room != null and room != ''">
+				AND a.room LIKE 
+					<if test="dbName == 'oracle'">'%'||#{room}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{room}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{room},'%')</if>
+			</if>
+			<if test="name != null and name != ''">
+				AND a.name LIKE 
+					<if test="dbName == 'oracle'">'%'||#{name}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{name}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{name},'%')</if>
+			</if>
+			<if test="addr != null and addr != ''">
+				AND a.addr LIKE 
+					<if test="dbName == 'oracle'">'%'||#{addr}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{addr}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{addr},'%')</if>
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="Trust">
+		SELECT 
+			<include refid="trustColumns"/>
+		FROM shop_trust a
+		<include refid="trustJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO shop_trust(
+			id,
+			rentway,
+			area_name,
+			samll_area_name,
+			building,
+			room,
+			bedroom,
+			livingroom,
+			wc,
+			areanum,
+			rentprice,
+			name,
+			gender,
+			mobile,
+			addr,
+			remarks,
+			create_by, 
+			create_date, 
+			update_by, 
+			update_date, 
+			delFlag
+		) VALUES (
+			#{id},
+			#{rentWay},
+			#{areaName},
+			#{samllAreaName},
+			#{building},
+			#{room},
+			#{bedroom},
+			#{livingroom},
+			#{wc},
+			#{areanum},
+			#{rentprice},
+			#{name},
+			#{gender},
+			#{mobile},
+			#{addr},
+			#{remarks},
+			#{createBy.id}, 
+			#{createDate}, 
+			#{updateBy.id}, 
+			#{updateDate}, 
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE shop_trust SET 	
+			rentway = #{rentWay},
+			area_name = #{areaName},
+			samll_area_name = #{samllAreaName},
+			building = #{building},
+			room = #{room},
+			bedroom = #{bedroom},
+			livingroom = #{livingroom},
+			wc = #{wc},
+			areanum = #{areanum},
+			rentprice = #{rentprice},
+			name = #{name},
+			gender = #{gender},
+			mobile = #{mobile},
+			addr = #{addr},
+			remarks = #{remarks},
+			update_by = #{updateBy.id}, 
+			update_date = #{updateDate}, 
+			delFlag = #{delFlag}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM shop_trust
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

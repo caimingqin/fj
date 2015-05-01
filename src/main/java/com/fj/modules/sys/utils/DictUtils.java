@@ -3,6 +3,7 @@
  */
 package com.fj.modules.sys.utils;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -25,6 +26,17 @@ public class DictUtils {
 	private static DictDao dictDao = SpringContextHolder.getBean(DictDao.class);
 
 	public static final String CACHE_DICT_MAP = "dictMap";
+	
+	public static String dl(String value, String type){
+		if (StringUtils.isNotBlank(type) && StringUtils.isNotBlank(value)){
+			for (Dict dict : getDictList(type)){
+				if (type.equals(dict.getType()) && value.equals(dict.getValue())){
+					return dict.getLabel();
+				}
+			}
+		}
+		return "--";
+	}
 	
 	public static String getDictLabel(String value, String type, String defaultValue){
 		if (StringUtils.isNotBlank(type) && StringUtils.isNotBlank(value)){
@@ -79,6 +91,17 @@ public class DictUtils {
 			dictList = Lists.newArrayList();
 		}
 		return dictList;
+	}
+	
+	public static List<Dict> gdl(String type){
+		List<Dict> dictList = getDictList(type);
+		List<Dict> results=new ArrayList<Dict>();
+		for(Dict d:dictList){
+			if(!d.getValue().equalsIgnoreCase("-1")){
+				results.add(d);
+			}
+		}
+		return results;
 	}
 	
 }

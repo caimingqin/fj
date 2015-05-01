@@ -114,6 +114,15 @@
   </function>
 	
   <!-- DictUtils -->
+  
+    <function>
+    <description>获取字典标签</description>
+    <name>dl</name>
+    <function-class>com.fj.modules.sys.utils.DictUtils</function-class>
+    <function-signature>java.lang.String dl(java.lang.String, java.lang.String)</function-signature>
+    <example>${fns:dl(value, type)}</example>  
+  </function>
+  
   <function>
     <description>获取字典标签</description>
     <name>getDictLabel</name>
@@ -144,6 +153,14 @@
     <function-class>com.fj.modules.sys.utils.DictUtils</function-class>
     <function-signature>java.util.List getDictList(java.lang.String)</function-signature>
     <example>${fns:getDictList(type)}</example>  
+  </function>
+  
+    <function>
+    <description>获取字典对象列表(不包含键值为-1的字典)</description>
+    <name>gdl</name>
+    <function-class>com.fj.modules.sys.utils.DictUtils</function-class>
+    <function-signature>java.util.List gdl(java.lang.String)</function-signature>
+    <example>${fns:gdl(type)}</example>  
   </function>
   
   <!-- Encodes -->

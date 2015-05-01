@@ -21,7 +21,7 @@ import java.util.Properties;
 
 /**
  * 数据库分页插件，只拦截查询语句.
- * @author poplar.yfyang / thinkgem
+ * @author poplar.yfyang / moonkingcai
  * @version 2013-8-28
  */
 @Intercepts({@Signature(type = Executor.class, method = "query",

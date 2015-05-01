@@ -5,12 +5,15 @@ package com.fj.modules.house.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fj.common.persistence.Page;
 import com.fj.common.service.CrudService;
+import com.fj.modules.house.entity.House;
 import com.fj.modules.house.entity.Schedule;
+import com.fj.modules.house.entity.ScheduleItem;
 import com.fj.modules.house.dao.ScheduleDao;
 
 /**
@@ -22,6 +25,8 @@ import com.fj.modules.house.dao.ScheduleDao;
 @Transactional(readOnly = true)
 public class ScheduleService extends CrudService<ScheduleDao, Schedule> {
 
+	@Autowired
+	private ScheduleItemService  scheduleItemService;
 	public Schedule get(String id) {
 		return super.get(id);
 	}
@@ -35,8 +40,11 @@ public class ScheduleService extends CrudService<ScheduleDao, Schedule> {
 	}
 	
 	@Transactional(readOnly = false)
-	public void save(Schedule schedule) {
+	public void save(Schedule schedule, List<House> houses) {
 		super.save(schedule);
+		for(House h:houses){
+			scheduleItemService.save(new ScheduleItem(schedule, h));
+		}
 	}
 	
 	@Transactional(readOnly = false)

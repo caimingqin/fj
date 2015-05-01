@@ -25,7 +25,7 @@ import com.fj.modules.house.service.ContractService;
 /**
  * 合同管理Controller
  * @author caimingqin
- * @version 2015-04-21
+ * @version 2015-04-25
  */
 @Controller
 @RequestMapping(value = "${adminPath}/house/contract")
@@ -70,6 +70,13 @@ public class ContractController extends BaseController {
 		contractService.save(contract);
 		addMessage(redirectAttributes, "保存合同成功");
 		return "redirect:"+Global.getAdminPath()+"/house/contract/?repage";
+	}
+	
+	
+	@RequiresPermissions("house:contract:edit")
+	@RequestMapping(value = "toSave")
+	public String toSave(Contract contract, Model model, RedirectAttributes redirectAttributes) {
+		return "modules/house/createContract";
 	}
 	
 	@RequiresPermissions("house:contract:edit")

@@ -9,7 +9,7 @@ import com.fj.common.persistence.DataEntity;
 
 /**
  * 主子表生成Entity
- * @author ThinkGem
+ * @author moonkingcai
  * @version 2015-03-30
  */
 public class TestDataChild extends DataEntity<TestDataChild> {

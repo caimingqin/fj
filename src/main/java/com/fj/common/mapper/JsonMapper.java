@@ -4,6 +4,7 @@
 package com.fj.common.mapper;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 import java.util.TimeZone;
@@ -26,6 +27,7 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.fasterxml.jackson.module.jaxb.JaxbAnnotationModule;
+import com.fj.modules.house.entity.House;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
@@ -238,11 +240,21 @@ public class JsonMapper extends ObjectMapper {
 		return JsonMapper.getInstance().fromJson(jsonString, clazz);
 	}
 	
+	@SuppressWarnings("unchecked")
+	public static <T> T fromInputStream(InputStream in, Class<T> clazz) {
+		try {
+			return (T) JsonMapper.getInstance().readValue(in, clazz);
+		} catch (IOException e) {
+			logger.warn("fromInputStream error.", e);
+		}
+		return null;
+	}
+
 	/**
 	 * 测试
 	 */
 	public static void main(String[] args) {
-		List<Map<String, Object>> list = Lists.newArrayList();
+		/*List<Map<String, Object>> list = Lists.newArrayList();
 		Map<String, Object> map = Maps.newHashMap();
 		map.put("id", 1);
 		map.put("pId", -1);
@@ -255,7 +267,17 @@ public class JsonMapper extends ObjectMapper {
 		map.put("open", true);
 		list.add(map);
 		String json = JsonMapper.getInstance().toJson(list);
-		System.out.println(json);
+		System.out.println(json);*/
+		
+	/*	Map<String, Object> map = Maps.newHashMap();
+		map.put("id", 1);
+		map.put("name", "根节点");
+		String json = JsonMapper.getInstance().toJson(map);
+		System.out.println(json);*/
+		
+		InputStream inputStream = JsonMapper.class.getClassLoader().getResourceAsStream("testjson.txt");
+		Map fromInputStream = JsonMapper.fromInputStream(inputStream, Map.class);
+		System.out.println(fromInputStream);
 	}
 	
 }

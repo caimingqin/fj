@@ -26,7 +26,7 @@ import java.util.Properties;
 
 /**
  * Mybatis分页拦截器基类
- * @author poplar.yfyang / thinkgem
+ * @author poplar.yfyang / moonkingcai
  * @version 2013-8-28
  */
 public abstract class BaseInterceptor implements Interceptor, Serializable {

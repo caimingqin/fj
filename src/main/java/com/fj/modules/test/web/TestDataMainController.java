@@ -24,7 +24,7 @@ import com.fj.modules.test.service.TestDataMainService;
 
 /**
  * 主子表生成Controller
- * @author ThinkGem
+ * @author moonkingcai
  * @version 2015-03-30
  */
 @Controller

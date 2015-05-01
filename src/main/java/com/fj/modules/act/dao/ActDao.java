@@ -9,7 +9,7 @@ import com.fj.modules.act.entity.Act;
 
 /**
  * 审批DAO接口
- * @author thinkgem
+ * @author moonkingcai
  * @version 2014-05-16
  */
 @MyBatisDao

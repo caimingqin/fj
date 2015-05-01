@@ -10,7 +10,7 @@ import com.fj.modules.house.entity.Contract;
 /**
  * 合同管理DAO接口
  * @author caimingqin
- * @version 2015-04-21
+ * @version 2015-04-25
  */
 @MyBatisDao
 public interface ContractDao extends CrudDao<Contract> {

@@ -2,7 +2,7 @@
 <%@ include file="/WEB-INF/views/include/taglib.jsp"%>
 <html>
 <head>
-	<title>单表管理</title>
+	<title>test管理</title>
 	<meta name="decorator" content="default"/>
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -18,8 +18,8 @@
 </head>
 <body>
 	<ul class="nav nav-tabs">
-		<li class="active"><a href="${ctx}/test/testData/">单表列表</a></li>
-		<shiro:hasPermission name="test:testData:edit"><li><a href="${ctx}/test/testData/form">单表添加</a></li></shiro:hasPermission>
+		<li class="active"><a href="${ctx}/test/testData/">test列表</a></li>
+		<shiro:hasPermission name="test:testData:edit"><li><a href="${ctx}/test/testData/form">test添加</a></li></shiro:hasPermission>
 	</ul>
 	<form:form id="searchForm" modelAttribute="testData" action="${ctx}/test/testData/" method="post" class="breadcrumb form-search">
 		<input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
@@ -27,18 +27,18 @@
 		<ul class="ul-form">
 			<li><label>归属用户：</label>
 				<sys:treeselect id="user" name="user.id" value="${testData.user.id}" labelName="user.name" labelValue="${testData.user.name}"
-					title="用户" url="/sys/office/treeData?type=3" cssClass="input-small" allowClear="true" notAllowSelectParent="true"/>
+					title="用户" url="/sys/office/treeData?type=3" cssClass="input-small" allowClear="true" notAllowSelectParent="false"/>
 			</li>
 			<li><label>归属部门：</label>
 				<sys:treeselect id="office" name="office.id" value="${testData.office.id}" labelName="office.name" labelValue="${testData.office.name}"
-					title="部门" url="/sys/office/treeData?type=2" cssClass="input-small" allowClear="true" notAllowSelectParent="true"/>
+					title="部门" url="/sys/office/treeData?type=2" cssClass="input-small" allowClear="true" notAllowSelectParent="false"/>
 			</li>
 			<li><label>归属区域：</label>
 				<sys:treeselect id="area" name="area.id" value="${testData.area.id}" labelName="area.name" labelValue="${testData.area.name}"
-					title="区域" url="/sys/area/treeData" cssClass="input-small" allowClear="true" notAllowSelectParent="true"/>
+					title="区域" url="/sys/area/treeData" cssClass="input-small" allowClear="true" notAllowSelectParent="false"/>
 			</li>
 			<li><label>名称：</label>
-				<form:input path="name" htmlEscape="false" maxlength="100" class="input-medium"/>
+				<form:input path="name" htmlEscape="false" maxlength="100" class="input-small"/>
 			</li>
 			<li><label>性别：</label>
 				<form:radiobuttons path="sex" items="${fns:getDictList('sex')}" itemLabel="label" itemValue="value" htmlEscape="false"/>
@@ -50,6 +50,9 @@
 				<input name="endInDate" type="text" readonly="true" maxlength="20" class="input-medium Wdate"
 					value="<fmt:formatDate value="${testData.endInDate}" pattern="yyyy-MM-dd HH:mm:ss"/>"
 					onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',isShowClear:false});"/>
+			</li>
+			<li><label>价格：</label>
+				<form:input path="price" htmlEscape="false" maxlength="18" class="input-small"/>
 			</li>
 			<li class="btns"><input id="btnSubmit" class="btn btn-primary" type="submit" value="查询"/></li>
 			<li class="clearfix"></li>
@@ -66,6 +69,7 @@
 				<th>性别</th>
 				<th>更新时间</th>
 				<th>备注信息</th>
+				<th>价格</th>
 				<shiro:hasPermission name="test:testData:edit"><th>操作</th></shiro:hasPermission>
 			</tr>
 		</thead>
@@ -93,9 +97,12 @@
 				<td>
 					${testData.remarks}
 				</td>
+				<td>
+					${testData.price}
+				</td>
 				<shiro:hasPermission name="test:testData:edit"><td>
     				<a href="${ctx}/test/testData/form?id=${testData.id}">修改</a>
-					<a href="${ctx}/test/testData/delete?id=${testData.id}" onclick="return confirmx('确认要删除该单表吗？', this.href)">删除</a>
+					<a href="${ctx}/test/testData/delete?id=${testData.id}" onclick="return confirmx('确认要删除该test吗？', this.href)">删除</a>
 				</td></shiro:hasPermission>
 			</tr>
 		</c:forEach>

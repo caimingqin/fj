@@ -3,6 +3,11 @@
  */
 package com.fj.modules.house.dao;
 
+import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.fj.common.persistence.CrudDao;
 import com.fj.common.persistence.annotation.MyBatisDao;
 import com.fj.modules.house.entity.House;
@@ -14,5 +19,7 @@ import com.fj.modules.house.entity.House;
  */
 @MyBatisDao
 public interface HouseDao extends CrudDao<House> {
+	
+	List<House> search(Map<String, Object> params);
 	
 }

@@ -20,7 +20,7 @@ import com.fj.modules.oa.dao.TestAuditDao;
 
 /**
  * 审批Service
- * @author thinkgem
+ * @author moonkingcai
  * @version 2014-05-16
  */
 @Service

@@ -1,5 +1,5 @@
 /**
- * Copyright &copy; 2012-2013 <a href="httparamMap://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
+ * Copyright &copy; 2012-2013 <a href="httparamMap://github.com/fj">fj</a> All rights reserved.
  */
 package com.fj.modules.sys.service;
 

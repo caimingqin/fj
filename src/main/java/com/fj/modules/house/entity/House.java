@@ -5,13 +5,21 @@ package com.fj.modules.house.entity;
 
 import com.fj.modules.sys.entity.User;
 import com.fj.modules.house.entity.SmallArea;
+
+import org.apache.commons.lang3.ArrayUtils;
 import org.hibernate.validator.constraints.Length;
+
 import com.fj.modules.sys.entity.Area;
+
 import java.util.Date;
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.validation.constraints.NotNull;
 
 import com.fj.common.persistence.DataEntity;
+import com.fj.common.utils.StringUtils;
 
 /**
  * 房源Entity
@@ -39,7 +47,6 @@ public class House extends DataEntity<House> {
 	private String description;		// 详情
 	private String images;		// 房图
 
-	private String delflag;		// delflag
 	
 	public House() {
 		super();
@@ -197,16 +204,20 @@ public class House extends DataEntity<House> {
 	public void setImages(String images) {
 		this.images = images;
 	}
-	
-	
-	
-	@Length(min=1, max=64, message="delflag长度必须介于 1 和 64 之间")
-	public String getDelflag() {
-		return delflag;
-	}
 
-	public void setDelflag(String delflag) {
-		this.delflag = delflag;
+	public String[] getImageUrls(){
+		if(StringUtils.isNotBlank(this.images)){
+			String imageStr = this.images.substring(1);//去除第一个“|”
+			return imageStr.split("\\|");
+		}
+		return null;
 	}
 	
+	public String getMainImage(){
+		String[] imageUrls = getImageUrls();
+		if(ArrayUtils.isEmpty(imageUrls)){
+			return null;
+		}
+		return imageUrls[0];
+	}
 }

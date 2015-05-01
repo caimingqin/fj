@@ -33,7 +33,6 @@ public interface CrudDao<T> extends BaseDao {
 	 * @return
 	 */
 	public List<T> findList(T entity);
-	
 	/**
 	 * 查询所有数据列表
 	 * @param entity

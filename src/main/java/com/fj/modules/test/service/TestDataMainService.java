@@ -19,7 +19,7 @@ import com.fj.modules.test.dao.TestDataChildDao;
 
 /**
  * 主子表生成Service
- * @author ThinkGem
+ * @author moonkingcai
  * @version 2015-03-30
  */
 @Service

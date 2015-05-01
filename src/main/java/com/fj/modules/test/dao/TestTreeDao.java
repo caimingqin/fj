@@ -9,7 +9,7 @@ import com.fj.modules.test.entity.TestTree;
 
 /**
  * 树结构生成DAO接口
- * @author ThinkGem
+ * @author moonkingcai
  * @version 2015-03-30
  */
 @MyBatisDao

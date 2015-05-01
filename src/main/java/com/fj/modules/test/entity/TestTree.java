@@ -11,7 +11,7 @@ import com.fj.common.persistence.TreeEntity;
 
 /**
  * 树结构生成Entity
- * @author ThinkGem
+ * @author moonkingcai
  * @version 2015-03-30
  */
 public class TestTree extends TreeEntity<TestTree> {

@@ -9,7 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 public class WiexinSignUtil {
 
 	// 与接口配置信息中的Token要一致  
-    private static String token = "ecjeesitecom";  
+    private static String token = "ecfjcom";  
   
     /** 
      * 验证签名 

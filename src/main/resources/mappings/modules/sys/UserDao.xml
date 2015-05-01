@@ -79,6 +79,7 @@
 		a.create_date,
 		a.update_by AS "updateBy.id",
 		a.update_date,
+		a.gender,
 		a.del_flag,
     	c.name AS "company.name",
     	c.parent_id AS "company.parent.id",
@@ -232,7 +233,8 @@
 			remarks, 
 			login_flag, 
 			photo, 
-			del_flag
+			del_flag,
+			gender
 		) VALUES (
 			#{id}, 
 			#{company.id}, 
@@ -252,7 +254,8 @@
 			#{remarks}, 
 			#{loginFlag}, 
 			#{photo}, 
-			#{delFlag}
+			#{delFlag},
+			#{gender}
 		)
 	</insert>
 	
@@ -273,7 +276,8 @@
 			update_date = #{updateDate}, 
 			remarks = #{remarks},
 			login_flag = #{loginFlag},
-			photo = #{photo}
+			photo = #{photo},
+			gender = #{gender}
 		WHERE id = #{id}
 	</update>
 	
@@ -299,7 +303,8 @@
 			update_by = #{updateBy.id}, 
 			update_date = #{updateDate}, 
 			remarks = #{remarks},
-			photo = #{photo}
+			photo = #{photo},
+			gender = #{gender}
 		WHERE id = #{id}
 	</update>
 	

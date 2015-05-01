@@ -5,6 +5,7 @@ package com.fj.modules.house.entity;
 
 import com.fj.modules.house.entity.Schedule;
 import com.fj.modules.house.entity.House;
+
 import org.hibernate.validator.constraints.Length;
 
 import com.fj.common.persistence.DataEntity;
@@ -27,6 +28,12 @@ public class ScheduleItem extends DataEntity<ScheduleItem> {
 
 	public ScheduleItem(String id){
 		super(id);
+	}
+
+	public ScheduleItem(Schedule schedule, House house) {
+		super();
+		this.schedule = schedule;
+		this.house = house;
 	}
 
 	public Schedule getSchedule() {

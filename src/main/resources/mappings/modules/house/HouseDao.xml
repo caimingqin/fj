@@ -99,6 +99,57 @@
 		</choose>
 	</select>
 	
+	<select id="search" resultType="House">
+		SELECT 
+			<include refid="houseColumns"/>
+		FROM shop_house a
+		<include refid="houseJoins"/>
+		<where>
+			<if test="addr != null and addr != ''">
+				AND a.addr LIKE 
+					<if test="dbName == 'oracle'">'%'||#{addr}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{addr}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{addr},'%')</if>
+			</if>
+		
+			<if test="smallAreaName != null and smallAreaName != ''">
+			    AND s2.name LIKE 
+					<if test="dbName == 'oracle'">'%'||#{smallAreaName}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{smallAreaName}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{smallAreaName},'%')</if>
+			</if>
+			
+			<if test="endprice != null and endprice != ''">
+				AND a.rentprice between #{startprice}  and  #{endprice}
+			</if>
+			
+			<if test="smallAreaId != null and smallAreaId != ''">
+				AND a.smallarea_id =  #{smallAreaId}
+			</if>
+			
+			<if test="housetype != null and housetype != ''">
+			<choose>
+			    <when test="housetype &lt; 40 ">
+			        AND a.housetype = #{housetype}
+			    </when>
+			    <otherwise>
+			        AND a.floor >= #{housetype} 
+			    </otherwise>
+			</choose>
+			</if>
+			
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	
+	
 	<select id="findAllList" resultType="House">
 		SELECT 
 			<include refid="houseColumns"/>

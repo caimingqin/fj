@@ -5,6 +5,7 @@ package com.fj.common.persistence;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +15,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fj.common.config.Global;
+import com.fj.common.mapper.JsonMapper;
 import com.fj.common.utils.CookieUtils;
 
 /**
@@ -49,6 +51,8 @@ public class Page<T> {
 	private String funcParam = ""; // 函数的附加参数，第三个参数值。
 	
 	private String message = ""; // 设置提示消息，显示在“共n条”之后
+	
+	private Map<String, Object> qeuryObject;
 
 	public Page() {
 		this.pageSize = -1;
@@ -526,6 +530,25 @@ public class Page<T> {
 	 */
 	public int getMaxResults(){
 		return getPageSize();
+	}
+    
+	public Map<String, Object> getQeuryObject() {
+		return qeuryObject;
+	}
+
+	public void setQeuryObject(Map<String, Object> qeuryObject) {
+		this.qeuryObject = qeuryObject;
+		this.qeuryObject.put("page", this);
+		this.qeuryObject.put("dbName", Global.getConfig("jdbc.type"));
+	}
+	
+	@SuppressWarnings({ "unchecked", "hiding" })
+	public <T>  T getQueryParam(String paramName,Class<T> t){
+		Object object = this.getQeuryObject().get(paramName);
+		if(object != null){
+			return (T)this.getQeuryObject().get(paramName);
+		}
+		return null;
 	}
 
 //	/**

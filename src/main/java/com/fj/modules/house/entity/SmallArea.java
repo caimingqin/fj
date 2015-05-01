@@ -26,7 +26,7 @@ public class SmallArea extends DataEntity<SmallArea> {
 	private Double plotRatio;		// 容积率
 	private Double greenRatio;		// 绿化率
 	private Integer sort;		// 排序
-	
+	private String addr;   //小区地址
 	public SmallArea() {
 		super();
 	}
@@ -118,6 +118,14 @@ public class SmallArea extends DataEntity<SmallArea> {
 
 	public void setSort(Integer sort) {
 		this.sort = sort;
+	}
+
+	public String getAddr() {
+		return addr;
+	}
+
+	public void setAddr(String addr) {
+		this.addr = addr;
 	}
 	
 }

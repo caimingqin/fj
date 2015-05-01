@@ -23,9 +23,9 @@ import com.fj.modules.test.entity.TestData;
 import com.fj.modules.test.service.TestDataService;
 
 /**
- * 单表生成Controller
- * @author ThinkGem
- * @version 2015-03-30
+ * testController
+ * @author caimingqin
+ * @version 2015-04-26
  */
 @Controller
 @RequestMapping(value = "${adminPath}/test/testData")
@@ -68,7 +68,7 @@ public class TestDataController extends BaseController {
 			return form(testData, model);
 		}
 		testDataService.save(testData);
-		addMessage(redirectAttributes, "保存单表成功");
+		addMessage(redirectAttributes, "保存test成功");
 		return "redirect:"+Global.getAdminPath()+"/test/testData/?repage";
 	}
 	
@@ -76,7 +76,7 @@ public class TestDataController extends BaseController {
 	@RequestMapping(value = "delete")
 	public String delete(TestData testData, RedirectAttributes redirectAttributes) {
 		testDataService.delete(testData);
-		addMessage(redirectAttributes, "删除单表成功");
+		addMessage(redirectAttributes, "删除test成功");
 		return "redirect:"+Global.getAdminPath()+"/test/testData/?repage";
 	}
 

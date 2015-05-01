@@ -3,12 +3,15 @@
  */
 package com.fj.modules.house.entity;
 
-import org.hibernate.validator.constraints.Length;
+import java.util.ArrayList;
 import java.util.Date;
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fj.modules.sys.entity.User;
+import java.util.List;
 
+import org.hibernate.validator.constraints.Length;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fj.common.persistence.DataEntity;
+import com.fj.modules.sys.entity.User;
 
 /**
  * 看房日程Entity
@@ -27,7 +30,8 @@ public class Schedule extends DataEntity<Schedule> {
 	private String roomerName;		// 房客姓名
 	private String roomerPhone;		// 房客电话
 	private String reason;		// 取消原因
-	
+	private String gender;
+	private List<ScheduleItem> items=new ArrayList<ScheduleItem>();
 	public Schedule() {
 		super();
 	}
@@ -115,5 +119,22 @@ public class Schedule extends DataEntity<Schedule> {
 	public void setReason(String reason) {
 		this.reason = reason;
 	}
-	
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public List<ScheduleItem> getItems() {
+		return items;
+	}
+
+	public void setItems(List<ScheduleItem> items) {
+		this.items = items;
+	}
+
+
 }
