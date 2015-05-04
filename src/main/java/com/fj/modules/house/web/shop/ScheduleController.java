@@ -1,9 +1,6 @@
 package com.fj.modules.house.web.shop;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,6 +30,9 @@ public class ScheduleController extends BaseController {
 	private HouseService houseService;
 	@RequestMapping(value = "/list")
 	public String list(Model model) {
+		if(UserUtils.noLogin()){
+			return "modules/house/shop/appointmentListEmpty";
+		}
 		Schedule schedule=new Schedule();
 		schedule.setCreateBy(UserUtils.getUser());
 		List<Schedule> schedules = scheduleService.findList(schedule);

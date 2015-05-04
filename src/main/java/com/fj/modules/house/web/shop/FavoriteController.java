@@ -34,6 +34,9 @@ public class FavoriteController extends BaseController {
 	
 	@RequestMapping(value = {"list", ""})
 	public String list(Favorite favorite, HttpServletRequest request, HttpServletResponse response, Model model) {
+		if(UserUtils.noLogin()){
+			return "modules/house/shop/favoriteEmpty";
+		}
 		List<Favorite> favorites = favoriteService.findListByUser();
 		model.addAttribute("favorites", favorites);
 		return "modules/house/shop/favorite";

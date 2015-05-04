@@ -14,7 +14,8 @@ import org.apache.commons.lang3.time.DateFormatUtils;
  * @version 2014-4-15
  */
 public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
-	
+	public static final String yyyyMMdd="yyyyMMdd";
+	public static final String yyMMdd="yyMMdd";
 	private static String[] parsePatterns = {
 		"yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm", "yyyy-MM", 
 		"yyyy/MM/dd", "yyyy/MM/dd HH:mm:ss", "yyyy/MM/dd HH:mm", "yyyy/MM",
@@ -27,6 +28,12 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return getDate("yyyy-MM-dd");
 	}
 	
+	public static String getYyyyMMdd() {
+		return getDate(yyyyMMdd);
+	}
+	public static String getYyMMdd() {
+		return getDate(yyMMdd);
+	}
 	/**
 	 * 得到当前日期字符串 格式（yyyy-MM-dd） pattern可以为："yyyy-MM-dd" "HH:mm:ss" "E"
 	 */
@@ -180,4 +187,6 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 //		long time = new Date().getTime()-parseDate("2012-11-19").getTime();
 //		System.out.println(time/(24*60*60*1000));
 	}
+
+	
 }

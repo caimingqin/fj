@@ -668,7 +668,7 @@ function checkLogin(a) {
 		if (a.uname) {
 			$("#Top .login")
 					.html(
-							'<a href="'
+							'<a id="setUserInfoCss"  mark="setCss" href="'
 									+ Url
 									+ 'userInfo/"><i class="iconfont">&#xe602;</i>'
 									+ a.uname
@@ -716,6 +716,16 @@ function checkLogin(a) {
 		$("#Itinerary span").remove();
 		$("#Showings span").remove()
 	}
+	  
+     //设置css样式
+	  var href=window.location.href;
+	  if(href.indexOf("/chuzu/favorite")!=-1	  
+				||href.indexOf("/chuzu/userInfo")!=-1  
+			  ){
+				  $("#setUserInfoCss").addClass("act");
+			  }
+	  
+	  
 }
 function loginOut() {
 	$.ajax({

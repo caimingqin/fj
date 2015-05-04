@@ -226,6 +226,25 @@ public class UserUtils {
 	public static Subject getSubject(){
 		return SecurityUtils.getSubject();
 	}
+	/**
+	 * 用户是否登录了
+	 * @return
+	 */
+	public static boolean isLogin(){
+		Principal principal = getPrincipal();
+		if(principal !=null ){
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * 用户是否登录了
+	 * @return
+	 */
+	public static  boolean noLogin(){
+		return !isLogin();
+	}
 	
 	/**
 	 * 获取当前登录者对象

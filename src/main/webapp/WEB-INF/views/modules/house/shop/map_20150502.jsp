@@ -1,5 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="/WEB-INF/views/include/taglib.jsp"%>
+
+
+
 <!doctype html>
 <html>
 <head>
@@ -9,13 +12,12 @@
 <meta name="keywords" content="房界">
 <meta name="description" content="房界">
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
-<link rel="stylesheet" href="${st}/css/House.css">
-<script src="${st}/js/house.js"></script>
 <script src="http://api.map.baidu.com/api?v=2.0&ak=D5b939310cda4811e6587c8a535e1edc"></script>
+
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/include/top.jsp"></jsp:include>
-<script>Top()</script><div id="Nav">
+<div id="Nav">
 	<div class="Rw">
 		<form action="" method="get" id="Search" provinceId="2" provincePy="shanghai" provinceName="上海" ht="1" class="searchForm">
 			<input type="hidden" name="grade" value="0">
@@ -65,8 +67,5 @@
 		<a href="javascript:" target="_blank" class="Sb"></a>
 	</div>
 </div><div id="Map"></div>
-
-	
-<!-- <script src="http://resource.iwjw.com/2.4.1/cache/js/logAjax.js"></script> -->
 </body>
 </html>

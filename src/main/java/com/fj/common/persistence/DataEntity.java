@@ -10,6 +10,7 @@ import org.hibernate.validator.constraints.Length;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fj.common.utils.CodeCreator;
 import com.fj.common.utils.IdGen;
 import com.fj.modules.sys.entity.User;
 import com.fj.modules.sys.utils.UserUtils;
@@ -46,7 +47,14 @@ public abstract class DataEntity<T> extends BaseEntity<T> {
 	public void preInsert(){
 		// 不限制ID为UUID，调用setIsNewRecord()使用自定义ID
 		if (!this.isNewRecord){
-			setId(IdGen.uuid());
+			System.out.println(this.getClass().getSimpleName());
+			
+		    CodeCreator codeCreator = CodeCreator.get(this.getClass().getSimpleName());
+			if(codeCreator != null){
+				setId(codeCreator.createCode());
+			}else{
+				setId(IdGen.uuid());
+			}
 		}
 		User user = UserUtils.getUser();
 		if (StringUtils.isNotBlank(user.getId())){

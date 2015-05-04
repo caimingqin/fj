@@ -14,13 +14,13 @@
 				</b>
 			</p>
 			<p>
-				<a href="/chuzu/search">租房</a>
+				<a  id="setSearchCss"  mark="setCss" href="/chuzu/search">租房</a>
 			</p>
 			<p>
-				<a href="/chuzu/page/appDomwload">App下载</a>
+				<a  id="setAppDomwloadCss" mark="setCss" href="/chuzu/page/appDomwload">App下载</a>
 			</p>
 			<p>
-				<a href="/chuzu/proprietor/service">房东委托</a>
+				<a id="setProprietorCss" mark="setCss"  href="/chuzu/proprietor/service">房东委托</a>
 			</p>
 		</dt>
 		<dd>
@@ -28,10 +28,10 @@
 				<a href="javascript:" class="login none">正在读取...</a>
 			</p>
 			<p>
-				<a href="/chuzu/seeHouse/list" id="Itinerary"><i class="iconfont">&#xe627;</i>约看清单</a>
+				<a id="setSeeHouseCss" mark="setCss" href="/chuzu/seeHouse/list" ><i class="iconfont">&#xe627;</i>约看清单</a>
 			</p>
 			<p>
-				<a href="/chuzu/schedule/list" id="Showings"><i class="iconfont">&#xe624;</i>看房日程</a>
+				<a id="setScheduleCss" mark="setCss"  href="/chuzu/schedule/list"><i class="iconfont">&#xe624;</i>看房日程</a>
 			</p>
 		</dd>
 	</dl>
@@ -39,3 +39,43 @@
 <script>
 	Top()
 </script>
+<script>
+<!--tab选中-->
+ var href=window.location.href;
+  $("a[mark=setCss]").each(function(){
+		  $(this).removeClass("act");
+  })
+  
+  if(href.indexOf("/chuzu/search")!=-1
+	||href.indexOf("/chuzu/detail")!=-1	  
+	||href.indexOf("/chuzu/map")!=-1	  
+  ){
+	  $("#setSearchCss").addClass("act");
+  }
+  
+  if(href.indexOf("/chuzu/page/appDomwload")!=-1){
+	  $("#setAppDomwloadCss").addClass("act");
+  }
+  
+  if(href.indexOf("/chuzu/proprietor/service")!=-1||
+		  href.indexOf("/chuzu/proprietor/delegation")!=-1  	  
+  ){
+	  $("#setProprietorCss").addClass("act");
+  }
+  
+  if(href.indexOf("/chuzu/seeHouse/list")!=-1	  
+  ){
+	  $("#setSeeHouseCss").addClass("act");
+  }
+  
+  if(href.indexOf("/chuzu/seeHouse/orderHouse")!=-1	  
+	||href.indexOf("/chuzu/schedule/list")!=-1  
+  ){
+	  $("#setScheduleCss").addClass("act");
+  }
+  
+ 
+
+
+</script>
+

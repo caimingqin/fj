@@ -19,7 +19,7 @@
 	<div class="Rw">
 		<div class="SeeT"></div>
 		<div class="Adviser Fr" ht="1">
-			<img src=" http://resource.iwjw.com/2.2/img/server.png ">
+			<img src="http://resource.iwjw.com/2.2/img/server.png">
 			<dl>
 				<dt>
 					<i class="aname needCut" len="10" title="王建业">王建业</i> <span
@@ -43,9 +43,9 @@
 						<h3>星期三 2015年03月11日 14:20</h3>
 						<dl>
 							<dt>碰头地点</dt>
-							<dd>===${s.meetaddr }</dd>
+							<dd>${s.meetaddr }</dd>
 							<dt>备注</dt>
-							<dd>===${s.remarks }</dd>
+							<dd>${s.remarks }</dd>
 						</dl>
 					</td>
 					<td class="state" step="6" acode="YZR4yzAULQs" agentName="王建业"

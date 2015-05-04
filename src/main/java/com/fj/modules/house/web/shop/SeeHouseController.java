@@ -22,6 +22,7 @@ import com.fj.modules.house.entity.SeeHouse;
 import com.fj.modules.house.service.HouseService;
 import com.fj.modules.house.service.ScheduleService;
 import com.fj.modules.house.service.SeeHouseService;
+import com.fj.modules.sys.entity.User;
 import com.fj.modules.sys.utils.UserUtils;
 
 /*
@@ -42,7 +43,11 @@ public class SeeHouseController extends BaseController {
 
 	@RequestMapping(value = {"list", ""})
 	public String list(SeeHouse seeHouse, HttpServletRequest request, HttpServletResponse response, Model model) {
-		List<SeeHouse> list = seeHouseService.findListByUser(); 
+	    if(UserUtils.noLogin()){
+	    	return "modules/house/shop/seeHouseListEmpty";
+	    }
+		User user = UserUtils.getUser();
+		List<SeeHouse> list = seeHouseService.findListByUser(user); 
 		model.addAttribute("list", list);
 		return "modules/house/shop/seeHouseList";
 	}

@@ -13,9 +13,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fj.common.persistence.Page;
 import com.fj.common.service.CrudService;
-import com.fj.modules.house.entity.SeeHouse;
 import com.fj.modules.house.dao.SeeHouseDao;
-import com.fj.modules.sys.utils.UserUtils;
+import com.fj.modules.house.entity.SeeHouse;
+import com.fj.modules.sys.entity.User;
 
 /**
  * 看房清单Service
@@ -50,10 +50,9 @@ public class SeeHouseService extends CrudService<SeeHouseDao, SeeHouse> {
 		super.delete(seeHouse);
 	}
 
-	public List<SeeHouse> findListByUser() {
-		String userId = UserUtils.getUser().getId();
+	public List<SeeHouse> findListByUser(User user) {
 		Map<String, Object> params=new HashMap<String, Object>();
-		params.put("userId", userId);
+		params.put("userId", user.getId());
 		return seeHouseDao.search(params);
 	}
 	
