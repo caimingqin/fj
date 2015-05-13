@@ -7,9 +7,9 @@ import javax.sql.DataSource;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationListener;
-import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
@@ -32,11 +32,30 @@ import com.fj.modules.sys.entity.Office;
 import com.fj.modules.sys.entity.Role;
 import com.fj.modules.sys.entity.User;
 
+/**
+ * 代码自动生成初始化
+ * @author Administrator
+ *
+ */
 @Component
-public class AppCodeInit implements ApplicationListener<ContextRefreshedEvent>{
+@Lazy(false)
+public class AppCodeInit implements InitializingBean{
 
     private Log logger = LogFactory.getLog(this.getClass().getName());
-
+	private static final String SmallArea = SmallArea.class.getSimpleName();
+	private static final String House = House.class.getSimpleName();
+	private static final String Contract = Contract.class.getSimpleName();
+	private static final String Favorite = Favorite.class.getSimpleName();
+	private static final String Schedule = Schedule.class.getSimpleName();
+	private static final String ScheduleItem = ScheduleItem.class.getSimpleName();
+	private static final String SeeHouse = SeeHouse.class.getSimpleName();
+	private static final String Subway = Subway.class.getSimpleName();
+	private static final String Trust = Trust.class.getSimpleName();
+	private static final String Area = Area.class.getSimpleName();
+	private static final String Menu = Menu.class.getSimpleName();
+	private static final String Office = Office.class.getSimpleName();
+	private static final String Role = Role.class.getSimpleName();
+	private static final String User = User.class.getSimpleName();
     
     private JdbcTemplate jt = null;
 
@@ -46,38 +65,38 @@ public class AppCodeInit implements ApplicationListener<ContextRefreshedEvent>{
     }
 
     private void init() {
-        CodeCreator.regist(SmallArea.class.getSimpleName(), "000000", Type.NO_DATE);
-        CodeCreator.regist(House.class.getSimpleName(), "000000", Type.NO_DATE);
-        CodeCreator.regist(Contract.class.getSimpleName(), "000000", Type.NO_DATE);
-        CodeCreator.regist(Favorite.class.getSimpleName(), "000000", Type.NO_DATE);
-        CodeCreator.regist(Schedule.class.getSimpleName(), "000000", Type.NO_DATE);
-        CodeCreator.regist(ScheduleItem.class.getSimpleName(), "000000", Type.NO_DATE);
-        CodeCreator.regist(SeeHouse.class.getSimpleName(), "000000", Type.NO_DATE);
-        CodeCreator.regist(Subway.class.getSimpleName(), "000000", Type.NO_DATE);
-        CodeCreator.regist(Trust.class.getSimpleName(), "000000", Type.NO_DATE);
-        CodeCreator.regist(Area.class.getSimpleName(), "000000", Type.NO_DATE);
-        CodeCreator.regist(Menu.class.getSimpleName(), "000000", Type.NO_DATE);
-        CodeCreator.regist(Office.class.getSimpleName(), "000000", Type.NO_DATE);
-        CodeCreator.regist(Role.class.getSimpleName(), "000000", Type.NO_DATE);
-        CodeCreator.regist(User.class.getSimpleName(), "000000", Type.NO_DATE);
+        CodeCreator.regist(SmallArea, "000000", Type.NO_DATE);
+        CodeCreator.regist(House, "000000", Type.NO_DATE);
+        CodeCreator.regist(Contract, "000000", Type.NO_DATE);
+        CodeCreator.regist(Favorite, "000000", Type.NO_DATE);
+        CodeCreator.regist(Schedule, "000000", Type.NO_DATE);
+        CodeCreator.regist(ScheduleItem, "000000", Type.NO_DATE);
+        CodeCreator.regist(SeeHouse, "000000", Type.NO_DATE);
+        CodeCreator.regist(Subway, "000000", Type.NO_DATE);
+        CodeCreator.regist(Trust, "000000", Type.NO_DATE);
+        CodeCreator.regist(Area, "000000", Type.NO_DATE);
+        CodeCreator.regist(Menu, "000000", Type.NO_DATE);
+        CodeCreator.regist(Office, "000000", Type.NO_DATE);
+        CodeCreator.regist(Role, "000000", Type.NO_DATE);
+        CodeCreator.regist(User, "000000", Type.NO_DATE);
        
         String year = DateUtils.getYear().substring(2);
         String ymd=DateUtils.getYyMMdd();
         logger.info("year:"+year);
-        CodeCreator.get(SmallArea.class.getSimpleName()).add(new Date(), getLastSmallAreaCode(), "XQ"+year);
-        CodeCreator.get(House.class.getSimpleName()).add(new Date(), getLastHouseCode(), "FY"+year);
-        CodeCreator.get(Contract.class.getSimpleName()).add(new Date(), getLastContractCode(), "HT"+ymd);
-        CodeCreator.get(Favorite.class.getSimpleName()).add(new Date(), getLastFavoriteCode(), "SC"+ymd);
-        CodeCreator.get(Schedule.class.getSimpleName()).add(new Date(), getLastScheduleCode(), "RC"+ymd);
-        CodeCreator.get(ScheduleItem.class.getSimpleName()).add(new Date(), getLastScheduleItemCode(), "RI"+ymd);
-        CodeCreator.get(SeeHouse.class.getSimpleName()).add(new Date(), getLastSeeHouseCode(), "KF"+ymd);
-        CodeCreator.get(Subway.class.getSimpleName()).add(new Date(), getLastSubwayCode(), "DT"+year);
-        CodeCreator.get(Trust.class.getSimpleName()).add(new Date(), getLastTrustCode(), "WT"+ymd);
-        CodeCreator.get(Area.class.getSimpleName()).add(new Date(), getLastAreaCode(), "QY"+year);
-        CodeCreator.get(Menu.class.getSimpleName()).add(new Date(), getLastMenuCode(), "CD"+year);
-        CodeCreator.get(Office.class.getSimpleName()).add(new Date(), getLastOfficeCode(), "ZZ"+year);
-        CodeCreator.get(Role.class.getSimpleName()).add(new Date(), getLastRoleCode(), "JS"+year);
-        CodeCreator.get(User.class.getSimpleName()).add(new Date(), getLastUserCode(), "YH"+year);
+        CodeCreator.get(SmallArea).add(new Date(), getLastSmallAreaCode(), "XQ"+year);
+        CodeCreator.get(House).add(new Date(), getLastHouseCode(), "FY"+year);
+        CodeCreator.get(Contract).add(new Date(), getLastContractCode(), "HT"+ymd);
+        CodeCreator.get(Favorite).add(new Date(), getLastFavoriteCode(), "SC"+ymd);
+        CodeCreator.get(Schedule).add(new Date(), getLastScheduleCode(), "RC"+ymd);
+        CodeCreator.get(ScheduleItem).add(new Date(), getLastScheduleItemCode(), "RI"+ymd);
+        CodeCreator.get(SeeHouse).add(new Date(), getLastSeeHouseCode(), "KF"+ymd);
+        CodeCreator.get(Subway).add(new Date(), getLastSubwayCode(), "DT"+year);
+        CodeCreator.get(Trust).add(new Date(), getLastTrustCode(), "WT"+ymd);
+        CodeCreator.get(Area).add(new Date(), getLastAreaCode(), "QY"+year);
+        CodeCreator.get(Menu).add(new Date(), getLastMenuCode(), "CD"+year);
+        CodeCreator.get(Office).add(new Date(), getLastOfficeCode(), "ZZ"+year);
+        CodeCreator.get(Role).add(new Date(), getLastRoleCode(), "JS"+year);
+        CodeCreator.get(User).add(new Date(), getLastUserCode(), "YH"+year);
     }
 
 	private String getLastRoleCode() {
@@ -168,7 +187,7 @@ public class AppCodeInit implements ApplicationListener<ContextRefreshedEvent>{
 	}
 
 	@Override
-	public void onApplicationEvent(ContextRefreshedEvent event) {
-		  this.init();
+	public void afterPropertiesSet() throws Exception {
+		this.init();
 	}
 }

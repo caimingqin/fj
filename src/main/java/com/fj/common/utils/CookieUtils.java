@@ -27,6 +27,9 @@ public class CookieUtils {
 		setCookie(response, name, value, 60*60*24);
 	}
 	
+	public static void removeCookie(HttpServletResponse response, String name){
+		setCookie(response, name, null, 0);
+	}
 	/**
 	 * 设置 Cookie
 	 * @param name 名称
@@ -61,7 +64,9 @@ public class CookieUtils {
 		cookie.setPath(path);
 		cookie.setMaxAge(maxAge);
 		try {
-			cookie.setValue(URLEncoder.encode(value, "utf-8"));
+			if(value != null){
+				cookie.setValue(URLEncoder.encode(value, "utf-8"));
+			}
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}

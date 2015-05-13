@@ -124,11 +124,17 @@ public class UserUtils {
 			if (user != null){
 				return user;
 			}
-			return new User();
+			return null;
 		}
 		// 如果没有登录，则返回实例化空的User对象。
-		return new User();
+		return null;
 	}
+	
+	public static User getUser(String token ){
+		Object user = CacheUtils.get(token);
+		return (User)user;
+	}
+	
 
 	/**
 	 * 获取当前用户角色列表
@@ -227,23 +233,23 @@ public class UserUtils {
 		return SecurityUtils.getSubject();
 	}
 	/**
-	 * 用户是否登录了
+	 * 用户已登录
 	 * @return
 	 */
-	public static boolean isLogin(){
-		Principal principal = getPrincipal();
-		if(principal !=null ){
+	public static boolean isLogin(String token){
+		Object object = CacheUtils.get(token);
+		if(object !=null ){
 			return true;
 		}
 		return false;
 	}
 	
 	/**
-	 * 用户是否登录了
+	 * 用户未登录
 	 * @return
 	 */
-	public static  boolean noLogin(){
-		return !isLogin();
+	public static  boolean noLogin(String token){
+		return !isLogin(token);
 	}
 	
 	/**

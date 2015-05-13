@@ -13,6 +13,7 @@ import com.fj.common.persistence.Page;
 import com.fj.common.service.CrudService;
 import com.fj.modules.house.dao.FavoriteDao;
 import com.fj.modules.house.entity.Favorite;
+import com.fj.modules.sys.entity.User;
 import com.fj.modules.sys.utils.UserUtils;
 
 /**
@@ -50,9 +51,9 @@ public class FavoriteService extends CrudService<FavoriteDao, Favorite> {
 		super.delete(favorite);
 	}
 
-	public List<Favorite> findListByUser() {
+	public List<Favorite> findListByUser(User user) {
 		Favorite favorite = new Favorite();
-		favorite.setCreateBy(UserUtils.getUser());
+		favorite.setCreateBy(user);
 	    List<Favorite> favorites = favoriteDao.findList(favorite);
 	    for(Favorite f:favorites){
 	    	f.setHouse(houseService.get(f.getHouse().getId()));

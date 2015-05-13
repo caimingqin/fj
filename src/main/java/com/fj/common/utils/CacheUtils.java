@@ -11,6 +11,7 @@ import net.sf.ehcache.Element;
  * Cache工具类
  * @author 
  * @version 2013-5-29
+ * @param <T>
  */
 public class CacheUtils {
 	
@@ -26,6 +27,7 @@ public class CacheUtils {
 	public static Object get(String key) {
 		return get(SYS_CACHE, key);
 	}
+	
 	
 	/**
 	 * 写入SYS_CACHE缓存

@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.ConstraintViolationException;
 import javax.validation.ValidationException;
@@ -27,8 +28,12 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fj.common.beanvalidator.BeanValidators;
+import com.fj.common.config.Constant;
 import com.fj.common.mapper.JsonMapper;
+import com.fj.common.utils.CookieUtils;
 import com.fj.common.utils.DateUtils;
+import com.fj.modules.sys.entity.User;
+import com.fj.modules.sys.utils.UserUtils;
 
 /**
  * 控制器支持类
@@ -211,6 +216,15 @@ public abstract class BaseController {
 //				return value != null ? DateUtils.formatDateTime((Date)value) : "";
 //			}
 		});
+	}
+	/**
+	 * 根据token获取当前登录人信息
+	 * @param request
+	 * @return
+	 */
+	protected User getLoginUser(HttpServletRequest request){
+		String token = CookieUtils.getCookie(request, Constant.COOKIE_IS_TOKEN);
+		return  UserUtils.getUser(token);
 	}
 	
 }

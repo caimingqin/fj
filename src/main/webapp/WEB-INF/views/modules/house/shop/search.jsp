@@ -31,7 +31,7 @@
 				<input type="hidden" name="areaId" value="0">
 				<h4><i class="iconfont">&#xe605;</i>区域</h4>
 			</div>
-			<a href="javascript:" class="Sb"><i class="iconfont">&#xe62c;</i>地图找房</a>
+			<a href="${stx}/map" class="Sb" target="_blank"><i class="iconfont">&#xe62c;</i>地图找房</a>
 		</div>
 		<ul id="listFilter">
 			<input type="hidden" name="grade" value="0">
@@ -96,6 +96,10 @@
 			
 		</ol>
 		<div class="Tr">
+		<%-- <p class="Page">
+		${page }
+		</p> --%>
+		
 			<p class="Page">
 				<i class="act">1</i>
     		    <a href="http://www.iwjw.com/chuzu/beijing/p2/">2</a>
@@ -114,26 +118,5 @@
 <!-- 尾部 -->
 <jsp:include page="/WEB-INF/views/include/bottom.jsp"></jsp:include>
 
-<div style="display:none">	
-	<!--<script src="http://resource.iwjw.com/2.2/${st}/js/foot.js"></script>-->
-	<script type="text/javascript">
-	//<!-- 百度统计 -->
-		
-	var _hmt = _hmt || [];
-	(function() {
-	  var hm = document.createElement("script");
-	  hm.src = "//hm.baidu.com/hm.js?3a10bbf8b4afa9e5ab91d66b6944e813";
-	  var s = document.getElementsByTagName("script")[0]; 
-	  s.parentNode.insertBefore(hm, s);
-	})();
-	
-	var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-	document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fd9c1d8c1576dcc0f1aa537eb3b3e5830' type='text/javascript'%3E%3C/script%3E"));
-	var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-	document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F9d413a8e18eff3d12181e53c4fa289cf' type='text/javascript'%3E%3C/script%3E"));
-	//<!-- 其他统计 -->
-	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000539121'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1000539121' type='text/javascript'%3E%3C/script%3E"));
-</script>
-</div>
 </body>
 </html>

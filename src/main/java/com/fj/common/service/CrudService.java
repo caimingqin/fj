@@ -40,8 +40,8 @@ public abstract class CrudService<D extends CrudDao<T>, T extends DataEntity<T>>
 	 * @param entity
 	 * @return
 	 */
-	public T get(T entity) {
-		return dao.get(entity);
+	public T find(T entity) {
+		return dao.find(entity);
 	}
 	
 	/**

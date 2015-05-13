@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.fj.common.config.Constant;
+import com.fj.common.utils.CookieUtils;
 import com.fj.common.utils.DateUtils;
 import com.fj.common.utils.StringUtils;
 import com.fj.common.web.BaseController;
@@ -43,21 +45,22 @@ public class SeeHouseController extends BaseController {
 
 	@RequestMapping(value = {"list", ""})
 	public String list(SeeHouse seeHouse, HttpServletRequest request, HttpServletResponse response, Model model) {
-	    if(UserUtils.noLogin()){
+		User loginUser = getLoginUser(request);
+		if(loginUser == null ){
 	    	return "modules/house/shop/seeHouseListEmpty";
 	    }
-		User user = UserUtils.getUser();
-		List<SeeHouse> list = seeHouseService.findListByUser(user); 
+		List<SeeHouse> list = seeHouseService.findListByUser(loginUser); 
 		model.addAttribute("list", list);
 		return "modules/house/shop/seeHouseList";
 	}
 
 	@ResponseBody
 	@RequestMapping(value = "add")
-	public String add(String houseId) {
+	public String add(HttpServletRequest request,String houseId) {
+		User loginUser = getLoginUser(request);
 		SeeHouse seeHouse = new SeeHouse();
 		seeHouse.setHouse(houseService.get(houseId));
-		seeHouse.setUser(UserUtils.getUser());
+		seeHouse.setUser(loginUser);
 		seeHouseService.save(seeHouse);
 		return "保存看房清单成功";
 	}
@@ -85,6 +88,7 @@ public class SeeHouseController extends BaseController {
 	
 	@RequestMapping(value = "/submitOrderHouse")
 	public String submitOrderHouse(HttpServletRequest req) {
+		User loginUser = getLoginUser(req);
 		String[] houseIds = req.getParameterValues("houseIds");
 		String realName = req.getParameter("realName");
 		String gender = req.getParameter("gender");
@@ -96,7 +100,7 @@ public class SeeHouseController extends BaseController {
 		}
 		schedule.setLookDate(DateUtils.parseDate(lookDate));
 		schedule.setRoomerName(realName);
-		schedule.setRoomerPhone(UserUtils.getUser().getMobile());
+		schedule.setRoomerPhone(loginUser.getMobile());
 		schedule.setGender(gender);
 		List<House> houses=new ArrayList<House>();
 		if(houseIds != null && houseIds.length>0){

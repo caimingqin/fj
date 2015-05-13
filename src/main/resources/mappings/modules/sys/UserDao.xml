@@ -127,12 +127,29 @@
 	<!-- 根据编号获得用户 -->
 	<select id="get" resultType="User">
 		SELECT
-			<include refid="userColumns"/><!-- ,
-			ro.office_id AS "roleList.officeList.id" -->
+			<include refid="userColumns"/>
 		FROM sys_user a
-		<include refid="userJoins"/><!-- 
-		LEFT JOIN sys_role_office ro ON ro.role_id = r.id -->
-		WHERE a.id = #{id}
+		<include refid="userJoins"/>
+		where a.id = #{id}
+		
+	</select>	
+	
+		<!-- 根据编号获得用户 -->
+	<select id="find" resultType="User">
+		SELECT
+			<include refid="userColumns"/>
+		FROM sys_user a
+		<include refid="userJoins"/>
+		<where>
+		 <if test="id != null and id != ''">
+			AND a.id = #{id}
+		</if>
+		<if test="mobile != null and mobile != ''">
+			AND a.mobile = #{mobile}
+		</if>
+		
+		</where>
+		
 	</select>
 	
 	<!-- 根据登录名查询用户 -->

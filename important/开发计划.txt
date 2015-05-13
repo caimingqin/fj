@@ -1,3 +1,3 @@
 1.web前后端预计20天
-2.android端30天
-3.ios端30天
+2.android端90天
+3.ios端90天

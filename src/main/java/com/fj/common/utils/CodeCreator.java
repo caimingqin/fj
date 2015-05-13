@@ -98,7 +98,7 @@ public final class CodeCreator {
 		return new CodeValue(lastDate,id,strChar);
 	}
 
-	public String createCode() {
+	public synchronized String  createCode() {
 		Long lastId = codeValue.value.getAndAdd(1);
 		String sLastId = format(lastId);
 		DateFormat yyyymmdd = new SimpleDateFormat("yyyyMMdd");
