@@ -55,8 +55,16 @@
 						</p>
 					</td>
 					<td class="tdL">
-						<button class="btn btnRented">预约中</button> <a href="" title="删除"
-						class="btn btnDel">删除</a>
+					    <c:if test="${si.status=='ordered' }">
+						<button class="btn btnRented">预约中</button>
+					    </c:if>
+					    <c:if test="${si.status=='contracted' }">
+					     <a href="" title="删除"  class="btn btnDel">已失效</a>
+					    </c:if>
+					     <c:if test="${si.status=='normal' }">
+					      <a href="" title="删除"  class="btn btnDel">删除</a>
+					    </c:if>
+						
 					</td>
 				</tr>
            </c:forEach>
