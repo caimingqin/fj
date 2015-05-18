@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+	<name>Constant</name>
+	<filePath></filePath>
+	<fileName></fileName>
+	<content><![CDATA[
+/**
+ * 
+ */
+package com.fj.common.config;
+
+
+public final class ${className} {
+<#list dicts as d>
+
+	public static final  String ${d.type?upper_case}_IS_<#if d.value?? && d.value=="-1">NULL<#else>${d.value?upper_case}</#if>="${d.value}";//${d.description}-${d.label}
+</#list>
+}
+}]]>
+	</content>
+</template>

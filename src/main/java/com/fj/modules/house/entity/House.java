@@ -3,23 +3,16 @@
  */
 package com.fj.modules.house.entity;
 
-import com.fj.modules.sys.entity.User;
-import com.fj.modules.house.entity.SmallArea;
+import java.util.Date;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.hibernate.validator.constraints.Length;
 
-import com.fj.modules.sys.entity.Area;
-
-import java.util.Date;
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
-
-import javax.validation.constraints.NotNull;
-
 import com.fj.common.persistence.DataEntity;
 import com.fj.common.utils.StringUtils;
+import com.fj.modules.sys.entity.Area;
+import com.fj.modules.sys.entity.User;
 
 /**
  * 房源Entity
