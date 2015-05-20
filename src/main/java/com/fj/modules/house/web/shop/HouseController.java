@@ -35,8 +35,6 @@ public class HouseController extends BaseController {
 	public String search(HttpServletRequest req, HttpServletResponse response,
 			Model model) throws IOException {
 		Page<House> page = new Page<House>(req, response);
-		// Map query=JsonMapper.fromInputStream(request.getInputStream(),
-		// Map.class);
 		Map<String, Object> query = new HashMap<String, Object>();
 		query.put("housetype", req.getParameter("housetype"));
 		query.put("addr", req.getParameter("addr"));

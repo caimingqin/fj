@@ -12,38 +12,45 @@ import java.util.Set;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowCallbackHandler;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.fj.common.mapper.JsonMapper;
 import com.fj.common.utils.StringUtils;
 import com.fj.modules.house.entity.House;
 
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:/spring-context.xml"})
-@ActiveProfiles("development")
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(locations = { "classpath:/spring-context.xml"})
+//@ActiveProfiles("development")
 public class SearchableTest {
 
 	@Autowired
 	private JdbcTemplate jt;
+	/**
+	 *查询的封装
+	 */
 	@Test
 	public void test(){
 		Searchable searchable = new Searchable();
 		searchable.setEntity("House");
-		searchable.setConditions("rentprice#eq#3000");
-		searchable.setSorts("rentprice@desc;createDate@desc");
-//		searchable.setFilters("G#id#name#rentprice#user{id;name;office{id,name}}");
-		searchable.setFilters("G#id#name#floor");
+//		searchable.setConditions("rentprice#eq#3000");
+//		searchable.setConditions("rentprice#eq#3000;user{id#eq#aaa}");
+		searchable.setConditions("rentprice#eq#3000;user{id#eq#aaa;name#eq#caimingqin}");
+
+		/*
+		 select * from shop_house a 
+		 left join sys_user u 
+		 on a.user_id=u.id 
+		 where a.user_id=? and a.rentprice=? 
+		*/
+//		searchable.setSorts("rentprice@desc;createDate@desc");
+//		searchable.setFilters("G#id#name#rentprice#user{id;name;office{id;name}}#area{id;name}");
+		searchable.setFilters("G#id#name#floor#user{id;name}");
 		
 		//获取实体属性名及对应的类型
-		Map<String, Class<?>> filedMap=getFields(House.class);
+		Map<String, Class<?>> fieldMap=getFields(House.class);
 		
 		//第一步 根据过滤条件构造实体bean
 		String filters = searchable.getFilters();
@@ -55,8 +62,8 @@ public class SearchableTest {
 			String[] fields=ArrayUtils.subarray(filterArr, 1, filterArr.length);
 			if(filterType.equalsIgnoreCase("G")){
 				for(String field:fields){
-				   if(filedMap.containsKey(field)){
-					   myPropertyMap.put(field,filedMap.get(field));
+				   if(fieldMap.containsKey(field)){
+					   myPropertyMap.put(field,fieldMap.get(field));
 				   }else{
 					   throw new IllegalArgumentException("找不到属性"+field);
 				   }
@@ -75,11 +82,21 @@ public class SearchableTest {
 		 if(StringUtils.isNotBlank(conditionStr)){
 			 String[] cds = conditionStr.split(";");
 			 for(String cd:cds){
-				 String[] result = cd.split("#");
-				 String field=result[0];
-				 String type=result[1];//操作类型
-				 String value=result[2];
-				 cList.add(Condition.create(field, type, value));
+				 if(cd.contains("{")){
+					 //user{id#eq#aaa}
+//					 cd.substring(0, cd.indexOf("{"))
+//					 String field=result[0];
+//					 String type=result[1];//操作类型
+//					 String value=result[2];
+//					 cList.add(Condition.create(field, type, value)); 
+				 }else{
+					 String[] result = cd.split("#");
+					 String field=result[0];
+					 String type=result[1];//操作类型
+					 String value=result[2];
+					 cList.add(Condition.create(field, type, value)); 
+				 }
+				
 			 }
 		 }
 		 //拼接SQL
@@ -138,7 +155,7 @@ public class SearchableTest {
 	@Test
 	public void test2() throws ClassNotFoundException{
 		
-	      // 设置类成员属性    
+	      // 设置类成员属性   
         //user 
         Map<String,Class<?>> userPropertyMap =new HashMap<String, Class<?>>();    
         userPropertyMap.put("id",String.class);
@@ -176,5 +193,124 @@ public class SearchableTest {
         for (int i = 0; i < methods.length; i++) {    
             System.out.println(methods[i].getName());    
         }    
+	}
+	
+	private List<Condition> getConditons(Searchable searchable){
+		String conditionStr= searchable.getConditions();
+		 System.out.println("conditionStr:"+conditionStr);
+		 List<Condition> cList=new ArrayList<Condition>();
+		 if(StringUtils.isNotBlank(conditionStr)){
+			 String[] cds = conditionStr.split(";");
+			 for(String cdStr:cds){
+				 if(cdStr.contains("{")){
+					 String entityName = cdStr.substring(0, cdStr.indexOf("{"));
+					 String cdPart = cdStr.substring( cdStr.indexOf("{")+1,cdStr.lastIndexOf("}"));
+					 System.out.println(entityName);
+					 System.out.println(cdPart);
+					 String[] cdss = cdPart.split(",");
+					 for(String c:cdss){
+							 String[] result = c.split("#");
+							 String field=result[0];
+							 String type=result[1];//操作类型
+							 String value=result[2];
+							 cList.add(Condition.create(entityName+"_"+field, type, value)); 
+					 }
+				 }else{
+					 String[] result = cdStr.split("#");
+					 String field=result[0];
+					 String type=result[1];//操作类型
+					 String value=result[2];
+					 cList.add(Condition.create(field, type, value)); 
+				 }
+				
+			 }
+		 }
+		 System.out.println(JsonMapper.toJsonString(cList));
+		return cList;
+	}
+	@Test
+	public void testSub(){
+/*		 String cdStr="user{id#eq#aaa;age#eq#18}";
+		 String entityName = cdStr.substring(0, cdStr.indexOf("{"));
+		 String cdPart = cdStr.substring( cdStr.indexOf("{")+1,cdStr.lastIndexOf("}"));
+		 System.out.println(entityName);
+		 System.out.println(cdPart);
+		 String[] cds = cdPart.split(";");
+		 List<Condition> cList=new ArrayList<Condition>();
+		 for(String c:cds){
+				 String[] result = c.split("#");
+				 String field=result[0];
+				 String type=result[1];//操作类型
+				 String value=result[2];
+				 cList.add(Condition.create(entityName+"_"+field, type, value)); 
+		 }*/
+		 
+			Searchable searchable = new Searchable();
+			searchable.setEntity("House");
+			searchable.setConditions("rentprice#eq#3000;user{id#eq#aaa,name#eq#caimingqin}");//where join 语句
+			searchable.setFilters("G#id#name#floor#user{id,name}");
+			searchable.setSorts("rentprice@desc;createDate@desc");
+			getConditons(searchable);
+			getJoins(searchable);
+			getSorts(searchable);
+		 /*
+		 select shop_house.id,shop_house.name,sys_user.id as userId,sys_user.name as userName from shop_house  
+		 left join sys_user  
+		 on shop_house.user_id=sys_user.id and sys_user.name=shop_house.user_name
+		 where shop_house.user_id=? and shop_house.rentprice=? and shop_house.user_name=?
+		  order by shop_house.rentprice desc , shop_house.createDate desc
+		*/
+		
+
+	}
+
+	private List<Sort>  getSorts(Searchable searchable) {
+		String sortStr = searchable.getSorts();
+		String[] sorts = sortStr.split(";");
+		List<Sort> sortList=new ArrayList<Sort>();
+		for(String s:sorts){
+			String[] sArray = s.split("@");
+			Sort sort = new Sort();
+			sort.setEntity(searchable.getEntity());
+			sort.setField(sArray[0]);
+			sort.setType(sArray[1]);
+			sortList.add(sort);
+		}
+		 System.out.println(JsonMapper.toJsonString(sortList));
+		return sortList;
+	}
+
+	private void getJoins(Searchable searchable) {
+		String conditionStr = searchable.getConditions();
+		 System.out.println("conditionStr:"+conditionStr);
+		 List<Join> cList=new ArrayList<Join>();
+		 if(StringUtils.isNotBlank(conditionStr)){
+			 String[] cds = conditionStr.split(";");
+			 for(String cdStr:cds){
+				 if(cdStr.contains("{")){
+//					 	 left join sys_user   on shop_house.user_id=sys_user.id and sys_user.name=shop_house.user_name
+					 String entityName = cdStr.substring(0, cdStr.indexOf("{"));
+					 String cdPart = cdStr.substring( cdStr.indexOf("{")+1,cdStr.lastIndexOf("}"));
+					 System.out.println(entityName);
+					 System.out.println(cdPart);
+					 String[] cdss = cdPart.split(",");
+					 for(String c:cdss){
+							 String[] result = c.split("#");
+							 String field=result[0];
+							 String type=result[1];//操作类型
+							 String value=result[2];
+							 Join join = new Join();
+							 join.setJoinEntity(searchable.getEntity());
+							 join.setEntity(entityName);
+							 join.setField(field);
+							 join.setType(type);
+							 cList.add(join); 
+					 }
+				 }
+				
+			 }
+		 }
+		 
+		 System.out.println(JsonMapper.toJsonString(cList));
 	}
 }
